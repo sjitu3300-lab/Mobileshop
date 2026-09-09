@@ -18,14 +18,12 @@
         }
 
         :root {
-            --bg-main: #0b0f19;          /* Page ka main background */
-    --bg-card: #0b0f19;          /* Product cards ka background (Ise bhi main background ke barabar kar diya hai) */
-    --border-color: #1f2937;     /* Borders ke liye subtle line */
-    --text-main: #ffffff;        /* Pure White Text */
-    --text-muted: #9ca3af;       /* Gray text */
-    --accent-color: #f97316;     /* Electric Orange Accent */
-}
-
+            --bg-main: #ffffff;          /* Pure White Page Background */
+            --bg-card: #ffffff;          /* Pure White Card Background */
+            --border-color: #e2e8f0;     /* Light Gray Border */
+            --text-main: #0f172a;        /* Deep Charcoal Black Text */
+            --text-muted: #64748b;       /* Muted Gray Text */
+        }
 
         body {
             background-color: var(--bg-main);
@@ -61,8 +59,8 @@
             text-decoration: none;
         }
 
-        .logo span {
-            color: var(--accent-color);
+        .logo i {
+            color: var(--text-main);
         }
 
         .nav-links-desktop {
@@ -79,7 +77,8 @@
         }
 
         .nav-links-desktop a:hover, .nav-links-desktop a.active {
-            color: var(--accent-color);
+            color: var(--text-main);
+            font-weight: 600;
         }
 
         .header-right {
@@ -91,7 +90,7 @@
         .search-bar-top {
             display: none;
             align-items: center;
-            background-color: var(--bg-card);
+            background-color: #f8fafc;
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 6px 12px;
@@ -101,10 +100,14 @@
         .search-bar-top input {
             background: transparent;
             border: none;
-            color: #fff;
+            color: var(--text-main);
             outline: none;
             font-size: 13px;
             width: 140px;
+        }
+
+        .search-bar-top input::placeholder {
+            color: var(--text-muted);
         }
 
         .search-bar-top i {
@@ -125,14 +128,14 @@
         }
 
         .header-icons a:hover {
-            color: var(--accent-color);
+            color: var(--text-main);
         }
 
         .cart-badge {
             position: absolute;
             top: -6px;
             right: -8px;
-            background-color: var(--accent-color);
+            background-color: var(--text-main);
             color: #ffffff;
             font-size: 9px;
             font-weight: 700;
@@ -162,9 +165,9 @@
         }
 
         .sort-dropdown {
-            background-color: var(--bg-card);
+            background-color: #f8fafc;
             border: 1px solid var(--border-color);
-            color: var(--text-muted);
+            color: var(--text-main);
             padding: 8px 14px;
             border-radius: 6px;
             font-size: 13px;
@@ -199,16 +202,16 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: box-shadow 0.2s, border-color 0.2s;
         }
 
         .product-card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-3px);
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .product-img-box {
-            background-color: var(--bg-main); /* Uniform background color matching page body */
+            background-color: #ffffff;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             height: 180px;
@@ -226,18 +229,19 @@
             top: 10px;
             left: 10px;
             font-size: 10px;
-            color: var(--text-muted);
-            background: rgba(0,0,0,0.4);
+            color: var(--text-main);
+            background: #f1f5f9;
             padding: 2px 6px;
             border-radius: 4px;
+            font-weight: 500;
         }
 
         .badge-discount {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: rgba(249, 115, 22, 0.15);
-            color: var(--accent-color);
+            background-color: #f1f5f9;
+            color: var(--text-main);
             font-size: 10px;
             font-weight: 700;
             padding: 2px 6px;
@@ -262,7 +266,7 @@
         .price-box {
             font-size: 14px;
             font-weight: 700;
-            color: var(--accent-color);
+            color: var(--text-main);
         }
 
         .old-price {
@@ -275,8 +279,8 @@
 
         .btn-choose {
             background-color: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
             width: 100%;
             padding: 9px;
             border-radius: 6px;
@@ -288,13 +292,13 @@
         }
 
         .btn-choose:hover {
-            background-color: var(--accent-color);
+            background-color: var(--text-main);
             color: #ffffff;
         }
 
         /* Footer */
         footer {
-            background-color: #070a12;
+            background-color: #f8fafc;
             border-top: 1px solid var(--border-color);
             margin-top: 60px;
             padding: 40px 20px 20px 20px;
@@ -321,14 +325,15 @@
             max-width: 350px;
             margin-top: 10px;
             line-height: 1.5;
+            color: var(--text-muted);
         }
 
         .payment-icons {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             margin-top: 15px;
             font-size: 22px;
-            color: #fff;
+            color: var(--text-main);
         }
 
         .footer-links-group {
@@ -337,7 +342,7 @@
         }
 
         .footer-col h4 {
-            color: #fff;
+            color: var(--text-main);
             font-size: 14px;
             margin-bottom: 12px;
         }
@@ -356,7 +361,7 @@
         }
 
         .footer-col ul a:hover {
-            color: var(--accent-color);
+            color: var(--text-main);
         }
 
         .footer-bottom {
@@ -374,8 +379,8 @@
     <!-- Header -->
     <header>
         <a href="#" class="logo">
-            <i class="fa-solid fa-mobile-screen-button" style="color: #f97316;"></i>
-            Soni <span>Mobile Hub</span>
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            Soni Mobile Hub
         </a>
         <div class="nav-links-desktop">
             <a href="#" class="active">Catalog</a>
@@ -387,7 +392,7 @@
         <div class="header-right">
             <div class="search-bar-top">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search mobile accessories...">
+                <input type="text" placeholder="Search accessories...">
             </div>
             <div class="header-icons">
                 <a href="#"><i class="fa-regular fa-heart"></i></a>
@@ -525,8 +530,8 @@
         <div class="footer-content">
             <div class="footer-left">
                 <a href="#" class="logo" style="font-size: 20px;">
-                    <i class="fa-solid fa-mobile-screen-button" style="color: #f97316;"></i>
-                    Soni <span>Mobile Hub</span>
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    Soni Mobile Hub
                 </a>
                 <p>Soni Mobile Hub brings you top-quality mobile accessories, rugged cases, fast chargers, and smart gadgets at the best local prices.</p>
                 <div class="payment-icons">
@@ -562,5 +567,5 @@
     </footer>
 
 </body>
-    </html>
-                        
+                                                                 </html>
+
