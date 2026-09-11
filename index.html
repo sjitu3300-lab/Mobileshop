@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soni Mobile Hub - Premium Mobile Store</title>
-    <!-- Google Fonts: Poppins for clean rounded modern font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Soni Mobile Hub - Premium Store</title>
+    <!-- Google Fonts: Inter for clean professional look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -14,26 +14,21 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         :root {
-            --bg-main: #FAF7EE;          /* Floral White Background */
-            --bg-card: #ffffff;          /* Pure White Cards */
-            --border-color: #dfdbce;     /* Soft Olive-Gray Border */
-            --text-main: #31372B;        /* Black Olive Text */
-            --text-muted: #626a58;       /* Muted Olive Text */
-            --accent-hover: #48523f;
+            --bg-main: #ffffff;          /* Pure White Theme */
+            --bg-card: #f9fafb;          /* Light Gray Card Background */
+            --border-color: #e5e7eb;     /* Clean Border */
+            --text-main: #000000;        /* Pure Black Text */
+            --text-muted: #4b5563;       /* Muted Gray Text */
         }
 
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
             padding-bottom: 70px;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--text-main);
         }
 
         /* Top Bar & Header */
@@ -43,7 +38,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 14px 30px;
+            padding: 16px 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -88,16 +83,15 @@
             font-weight: 600;
         }
 
-        /* Dropdown Menu */
         .dropdown-menu {
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: var(--bg-card);
+            background-color: var(--bg-main);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             width: 240px;
-            box-shadow: 0 10px 25px rgba(49, 55, 43, 0.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             display: none;
             padding: 10px 0;
             z-index: 1100;
@@ -114,21 +108,22 @@
             color: var(--text-main);
             font-size: 13px;
             font-weight: 500;
-            transition: background 0.2s;
         }
 
         .dropdown-item:hover {
-            background-color: #f2efe4;
-            color: var(--text-main);
+            background-color: #f3f4f6;
         }
 
         .dropdown-sub {
             padding-left: 28px;
             font-size: 12px;
             color: var(--text-muted);
+            display: block;
+            padding: 6px 0 6px 28px;
+            text-decoration: none;
         }
+        .dropdown-sub:hover { color: var(--text-main); }
 
-        /* Header Right Icons */
         .header-icons {
             display: flex;
             gap: 18px;
@@ -140,7 +135,6 @@
             color: var(--text-muted);
             position: relative;
             text-decoration: none;
-            transition: color 0.2s;
         }
 
         .header-icons a:hover {
@@ -152,7 +146,7 @@
             top: -6px;
             right: -8px;
             background-color: var(--text-main);
-            color: var(--bg-main);
+            color: #ffffff;
             font-size: 9px;
             font-weight: 700;
             padding: 2px 5px;
@@ -160,12 +154,10 @@
         }
 
         @media (min-width: 992px) {
-            .nav-menu {
-                display: flex;
-            }
+            .nav-menu { display: flex; }
         }
 
-        /* Hero Slider Section */
+        /* Hero Slider Section (1:1 Aspect Ratio Right Image, Left Buttons) */
         .hero-slider {
             max-width: 1250px;
             margin: 25px auto;
@@ -179,19 +171,18 @@
             border-radius: 16px;
             overflow: hidden;
             position: relative;
-            min-height: 320px;
         }
 
         .hero-slides-track {
             display: flex;
             transition: transform 0.6s ease-in-out;
-            width: 400%; /* 4 slides */
+            width: 400%;
         }
 
         .hero-slide {
             width: 25%;
             flex-shrink: 0;
-            padding: 40px 30px;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -201,12 +192,17 @@
         @media (min-width: 768px) {
             .hero-slide {
                 flex-direction: row;
-                padding: 60px;
+                padding: 50px;
             }
         }
 
+        .hero-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+
         .hero-content h1 {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
             margin-bottom: 12px;
             line-height: 1.2;
@@ -215,37 +211,57 @@
         .hero-content p {
             font-size: 14px;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             max-width: 450px;
         }
 
-        .btn-primary-custom {
-            background-color: var(--text-main);
-            color: var(--bg-main);
-            padding: 10px 24px;
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-explore {
+            background-color: transparent;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            padding: 10px 22px;
             border-radius: 6px;
             font-size: 13px;
             font-weight: 600;
             text-decoration: none;
-            display: inline-block;
+            transition: all 0.2s;
+        }
+        .btn-explore:hover { background-color: #f3f4f6; }
+
+        .btn-buy-now {
+            background-color: var(--text-main);
+            border: 1px solid var(--text-main);
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
             transition: opacity 0.2s;
         }
+        .btn-buy-now:hover { opacity: 0.85; }
 
-        .btn-primary-custom:hover {
-            opacity: 0.9;
-        }
-
-        .hero-img {
-            font-size: 90px;
+        .hero-img-box {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 1 / 1; /* Exact 1:1 Size */
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
             color: var(--text-main);
             margin-top: 20px;
         }
-
         @media (min-width: 768px) {
-            .hero-img {
-                font-size: 130px;
-                margin-top: 0;
-            }
+            .hero-img-box { margin-top: 0; }
         }
 
         .hero-dots {
@@ -261,107 +277,27 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background-color: #dfdbce;
+            background-color: #d1d5db;
             cursor: pointer;
             transition: background 0.3s;
         }
-
         .h-dot.active {
             background-color: var(--text-main);
             width: 22px;
             border-radius: 4px;
         }
 
-        /* Marquee Ticker */
-        .info-marquee {
-            background-color: #f2efe4;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 10px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            margin: 20px 0;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .marquee-track {
-            display: inline-block;
-            animation: marquee 25s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Smart Search Section */
-        .search-section {
-            max-width: 1250px;
-            margin: 0 auto 30px auto;
-            padding: 0 20px;
-            position: relative;
-        }
-
-        .search-box-wrapper {
-            display: flex;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 10px 16px;
-            align-items: center;
-            gap: 12px;
-            position: relative;
-        }
-
-        .search-box-wrapper input {
-            background: transparent;
-            border: none;
-            outline: none;
-            width: 100%;
-            font-size: 14px;
-            color: var(--text-main);
-        }
-
-        .search-suggestions {
-            position: absolute;
-            top: 110%;
-            left: 0;
-            width: 100%;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(49, 55, 43, 0.08);
-            display: none;
-            z-index: 100;
-            padding: 10px 0;
-        }
-
-        .suggestion-item {
-            padding: 10px 20px;
-            font-size: 13px;
-            cursor: pointer;
-            color: var(--text-main);
-        }
-
-        .suggestion-item:hover {
-            background-color: #f2efe4;
-        }
-
-        /* Circular Category Slider */
+        /* Circular Category with Real Images */
         .cat-scroll-section {
             max-width: 1250px;
-            margin: 0 auto 40px auto;
+            margin: 30px auto 40px auto;
             padding: 0 20px;
         }
 
         .section-title {
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .cat-slider {
@@ -371,19 +307,16 @@
             scroll-behavior: smooth;
             padding-bottom: 10px;
         }
-
-        .cat-slider::-webkit-scrollbar {
-            display: none;
-        }
+        .cat-slider::-webkit-scrollbar { display: none; }
 
         .cat-item {
             text-align: center;
             flex-shrink: 0;
             cursor: pointer;
-            width: 90px;
+            width: 95px;
         }
 
-        .cat-circle {
+        .cat-circle-img {
             width: 80px;
             height: 80px;
             background-color: var(--bg-card);
@@ -392,26 +325,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 30px;
             color: var(--text-main);
             margin: 0 auto 8px auto;
-            transition: all 0.2s;
+            overflow: hidden;
         }
-
-        .cat-item:hover .cat-circle {
-            border-color: var(--text-main);
-            box-shadow: 0 4px 12px rgba(49, 55, 43, 0.1);
-        }
-
-        .cat-name {
-            font-size: 12px;
-            font-weight: 500;
-        }
+        .cat-name { font-size: 12px; font-weight: 600; }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigation Bar -->
+    <!-- Header -->
     <header>
         <a href="#" class="logo">
             <i class="fa-solid fa-mobile-screen-button"></i>
@@ -429,14 +353,11 @@
                     <a href="#" class="dropdown-sub">↳ Wireless Earbuds</a>
                     <a href="#" class="dropdown-sub">↳ Bluetooth Neckbands</a>
                     <a href="#" class="dropdown-item">🔌 Charging Solutions</a>
-                    <a href="#" class="dropdown-sub">↳ Fast Chargers & Adapters</a>
-                    <a href="#" class="dropdown-sub">↳ Power Banks</a>
+                    <a href="#" class="dropdown-sub">↳ Fast Adapters & Power Banks</a>
                     <a href="#" class="dropdown-item">🛡️ Protection & Cases</a>
-                    <a href="#" class="dropdown-sub">↳ Silicone Back Covers</a>
-                    <a href="#" class="dropdown-sub">↳ Armor Rugged Cases</a>
+                    <a href="#" class="dropdown-sub">↳ Silicone & Armor Cases</a>
                     <a href="#" class="dropdown-item">⌚ Glass & Wearables</a>
-                    <a href="#" class="dropdown-sub">↳ UV Tempered Glass</a>
-                    <a href="#" class="dropdown-sub">↳ Smartwatches</a>
+                    <a href="#" class="dropdown-sub">↳ UV Tempered Glass & Watches</a>
                 </div>
             </li>
             <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-blog"></i> Blog</a></li>
@@ -449,45 +370,53 @@
         </div>
     </header>
 
-    <!-- Main Hero Slider -->
+    <!-- Hero Slider (1:1 Ratio Right Image & Left Buttons) -->
     <div class="hero-slider">
         <div class="hero-container">
             <div class="hero-slides-track" id="heroTrack">
-                <!-- Slide 1 -->
                 <div class="hero-slide">
                     <div class="hero-content">
-                        <h1>Next-Gen 5G Smartphones</h1>
-                        <p>Explore high-performance smartphones with incredible camera quality, massive battery life, and best local store warranty.</p>
-                        <a href="#" class="btn-primary-custom">Explore Phones</a>
+                        <h1>Flagship 5G Smartphones</h1>
+                        <p>Experience ultra-fast connectivity, stellar camera setups, and uncompromised performance at local store prices.</p>
+                        <div class="hero-buttons">
+                            <a href="#" class="btn-explore">Explore</a>
+                            <a href="#" class="btn-buy-now">Buy Now</a>
+                        </div>
                     </div>
-                    <div class="hero-img"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="hero-img-box"><i class="fa-solid fa-mobile-screen"></i></div>
                 </div>
-                <!-- Slide 2 -->
                 <div class="hero-slide">
                     <div class="hero-content">
-                        <h1>Premium Audio Gadgets</h1>
-                        <p>Immerse yourself in pure bass with our trending wireless earbuds, neckbands, and active noise-cancelling headphones.</p>
-                        <a href="#" class="btn-primary-custom">Shop Audio</a>
+                        <h1>Pro Wireless Earbuds</h1>
+                        <p>Crystal clear active noise cancellation with deep bass built for true audiophiles on the go.</p>
+                        <div class="hero-buttons">
+                            <a href="#" class="btn-explore">Explore</a>
+                            <a href="#" class="btn-buy-now">Buy Now</a>
+                        </div>
                     </div>
-                    <div class="hero-img"><i class="fa-solid fa-headphones-simple"></i></div>
+                    <div class="hero-img-box"><i class="fa-solid fa-ear-listen"></i></div>
                 </div>
-                <!-- Slide 3 -->
                 <div class="hero-slide">
                     <div class="hero-content">
-                        <h1>MagSafe & Fast Chargers</h1>
-                        <p>Power up your devices safely with certified 20W adapters, high-speed cables, and magnetic wireless charging pads.</p>
-                        <a href="#" class="btn-primary-custom">View Chargers</a>
+                        <h1>Fast MagSafe Chargers</h1>
+                        <p>Secure magnetic wireless charging pads and 20W power adapters engineered for fast energy delivery.</p>
+                        <div class="hero-buttons">
+                            <a href="#" class="btn-explore">Explore</a>
+                            <a href="#" class="btn-buy-now">Buy Now</a>
+                        </div>
                     </div>
-                    <div class="hero-img"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="hero-img-box"><i class="fa-solid fa-bolt"></i></div>
                 </div>
-                <!-- Slide 4 -->
                 <div class="hero-slide">
                     <div class="hero-content">
-                        <h1>Stylish Cases & Covers</h1>
-                        <p>Protect your phone with rugged armor cases, shockproof silicone covers, and ultra-clear UV tempered glasses.</p>
-                        <a href="#" class="btn-primary-custom">Shop Protection</a>
+                        <h1>Rugged Armor Protection</h1>
+                        <p>Military-grade drop defense cases combined with edge-to-edge UV tempered glass screen guards.</p>
+                        <div class="hero-buttons">
+                            <a href="#" class="btn-explore">Explore</a>
+                            <a href="#" class="btn-buy-now">Buy Now</a>
+                        </div>
                     </div>
-                    <div class="hero-img"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="hero-img-box"><i class="fa-solid fa-shield-halved"></i></div>
                 </div>
             </div>
             <div class="hero-dots" id="heroDots">
@@ -499,70 +428,20 @@
         </div>
     </div>
 
-    <!-- Information Marquee Ticker -->
-    <div class="info-marquee">
-        <div class="marquee-track">
-            🔥 Special Offer: Flat 10% OFF on all MagSafe Accessories using code <strong>SONI10</strong> &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 🚚 Free Same-Day Delivery available on orders above ₹999 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 🛡️ 100% Original Products with Brand Warranty & Easy Exchange!
-        </div>
-    </div>
-
-    <!-- Search Bar with Smart Suggestions -->
-    <div class="search-section">
-        <div class="search-box-wrapper">
-            <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
-            <input type="text" id="searchInput" placeholder="Search for cases, chargers, earbuds, smartphones..." onfocus="showSuggestions()" onblur="hideSuggestions()">
-            <div class="search-suggestions" id="searchSuggestions">
-                <div class="suggestion-item">🔥 iPhone 15 Pro Max Silicon Case</div>
-                <div class="suggestion-item">⚡ Apple 20W Fast Charger Adapter</div>
-                <div class="suggestion-item">🎵 Boat Rockerz Neckband</div>
-                <div class="suggestion-item">🔋 MagSafe Wireless Charging Pad</div>
-                <div class="suggestion-item">🛡️ UV Curved Tempered Glass</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Circular Categories Scrolling Bar -->
+    <!-- Circular Categories with Real Image Thumbnails -->
     <div class="cat-scroll-section">
-        <div class="section-title">
-            <span>Explore Categories</span>
-        </div>
+        <div class="section-title">Explore Categories</div>
         <div class="cat-slider">
-            <div class="cat-item">
-                <div class="cat-circle"><i class="fa-solid fa-mobile-screen"></i></div>
-                <div class="cat-name">Mobile</div>
-            </div>
-            <div class="cat-item">
-                <div class="cat-circle"><i class="fa-solid fa-clock"></i></div>
-                <div class="cat-name">Smart Watch</div>
-            </div>
-            <div class="cat-item">
-                <div class="cat-circle"><i class="fa-solid fa-ear-listen"></i></div>
-                <div class="cat-name">Earpods</div>
-            </div>
-            <div class="cat-item">
-                <div class="cat-circle"><i class="fa-solid fa-headphones"></i></div>
-                <div class="cat-name">Neckband</div>
-            </div>
-            <div class="cat-item">
-                <div class="cat-circle"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="cat-name">Mobile Cover</div>
-            </div>
-            <div class="cat-item">
-                <div class="cat-circle"><i class="fa-solid fa-glasses"></i></div>
-                <div class="cat-name">Mobile Glasses</div>
-            </div>
-            <div class="cat-item">
-                <div class="cat-circle"><i class="fa-solid fa-bolt"></i></div>
-                <div class="cat-name">Chargers</div>
-            </div>
-            <div class="cat-item">
-                <div class="cat-circle"><i class="fa-solid fa-battery-full"></i></div>
-                <div class="cat-name">Power Bank</div>
-            </div>
+            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-mobile"></i></div><div class="cat-name">Mobile</div></div>
+            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-clock"></i></div><div class="cat-name">Smart Watch</div></div>
+            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-ear-listen"></i></div><div class="cat-name">Earpods</div></div>
+            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-headphones"></i></div><div class="cat-name">Neckband</div></div>
+            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-shield-halved"></i></div><div class="cat-name">Mobile Cover</div></div>
+            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-glasses"></i></div><div class="cat-name">Mobile Glasses</div></div>
+            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-bolt"></i></div><div class="cat-name">Chargers</div></div>
         </div>
     </div>
-        <!-- Product Sections with Auto & Manual Sliders -->
-    <style>
+        <style>
         .product-section-container {
             max-width: 1250px;
             margin: 0 auto 40px auto;
@@ -578,54 +457,53 @@
             display: flex;
             gap: 20px;
             transition: transform 0.5s ease-in-out;
+            scroll-behavior: smooth;
         }
+        .prod-track::-webkit-scrollbar { display: none; }
 
         .product-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 16px;
-            min-width: 260px;
-            flex: 0 0 calc(25% - 15px);
+            min-width: 240px;
+            flex: 0 0 calc(20% - 16px); /* Fits 5 items per view */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        @media (max-width: 992px) {
-            .product-card { flex: 0 0 calc(50% - 10px); }
-        }
-        @media (max-width: 576px) {
-            .product-card { flex: 0 0 100%; }
-        }
+        @media (max-width: 1200px) { .product-card { flex: 0 0 calc(25% - 15px); } }
+        @media (max-width: 900px) { .product-card { flex: 0 0 calc(33.33% - 14px); } }
+        @media (max-width: 600px) { .product-card { flex: 0 0 calc(50% - 10px); } }
 
         .product-img-box {
-            background-color: var(--bg-main);
+            background-color: #ffffff;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            height: 160px;
+            height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 45px;
-            color: var(--text-muted);
-            margin-bottom: 14px;
+            color: var(--text-main);
+            margin-bottom: 12px;
             position: relative;
         }
 
         .badge-tag {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 8px;
+            left: 8px;
             font-size: 9px;
-            background: #f2efe4;
+            background: #e5e7eb;
             padding: 2px 6px;
             border-radius: 4px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .product-name {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             margin-bottom: 6px;
             line-height: 1.4;
@@ -638,289 +516,179 @@
             margin: 10px 0 14px 0;
         }
 
-        .price-box {
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .old-price {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-decoration: line-through;
-            font-weight: 400;
-            margin-right: 6px;
-        }
+        .price-box { font-size: 13px; font-weight: 700; }
+        .old-price { font-size: 11px; color: var(--text-muted); text-decoration: line-through; margin-right: 4px; }
 
         .btn-choose {
             background-color: transparent;
             border: 1px solid var(--text-main);
             color: var(--text-main);
             width: 100%;
-            padding: 9px;
+            padding: 8px;
             border-radius: 6px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
             text-align: center;
         }
+        .btn-choose:hover { background-color: var(--text-main); color: #ffffff; }
 
-        .btn-choose:hover {
-            background-color: var(--text-main);
-            color: var(--bg-main);
-        }
-
-        /* Brand Logos 3-Second Ticker Slider */
+        /* Slow Brand Logos Ticker (0.6s smooth speed) */
         .brands-section {
             max-width: 1250px;
-            margin: 50px auto;
+            margin: 40px auto;
             padding: 0 20px;
-            text-align: center;
+            overflow: hidden;
         }
-
         .brand-slider-box {
             display: flex;
             gap: 20px;
-            overflow: hidden;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 0;
+            width: max-content;
+            animation: slowTicker 20s linear infinite;
         }
-
+        @keyframes slowTicker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
         .brand-badge {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 15px 30px;
+            padding: 14px 35px;
             border-radius: 8px;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
             letter-spacing: 1px;
             color: var(--text-main);
+            white-space: nowrap;
         }
 
-        /* Footer Style */
+        /* Footer */
         footer {
-            background-color: #f2efe4;
+            background-color: #f9fafb;
             border-top: 1px solid var(--border-color);
-            margin-top: 60px;
-            padding: 40px 20px 20px 20px;
-            color: var(--text-muted);
+            margin-top: 50px;
+            padding: 30px 20px;
+            text-align: center;
             font-size: 13px;
-        }
-
-        .footer-content {
-            max-width: 1250px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        @media (min-width: 768px) {
-            .footer-content {
-                flex-direction: row;
-                justify-content: space-between;
-            }
+            color: var(--text-muted);
         }
     </style>
 
-    <!-- Section 1: New Arrivals -->
+    <!-- Section 1: New Arrivals (7 Cards Auto-Slide) -->
     <div class="product-section-container">
-        <div class="section-title">
-            <span>New Arrivals</span>
-        </div>
+        <div class="section-title">New Arrivals</div>
         <div class="prod-slider-wrapper">
             <div class="prod-track" id="trackNew">
-                <!-- Product Card 1 -->
-                <div class="product-card">
-                    <div>
-                        <div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-mobile-screen"></i></div>
-                        <div class="product-name">iPhone 15 Pro Max Silicon Armor Case</div>
-                    </div>
-                    <div>
-                        <div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹1,199</div></div>
-                        <button class="btn-choose">Choose Options</button>
-                    </div>
-                </div>
-                <!-- Product Card 2 -->
-                <div class="product-card">
-                    <div>
-                        <div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-bolt"></i></div>
-                        <div class="product-name">Apple 20W Type-C Fast Adapter</div>
-                    </div>
-                    <div>
-                        <div class="product-price-row"><div class="price-box"><span class="old-price">₹1,999</span> ₹1,699</div></div>
-                        <button class="btn-choose">Choose Options</button>
-                    </div>
-                </div>
-                <!-- Product Card 3 -->
-                <div class="product-card">
-                    <div>
-                        <div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-ear-listen"></i></div>
-                        <div class="product-name">Boat Rockerz Wireless Earbuds</div>
-                    </div>
-                    <div>
-                        <div class="product-price-row"><div class="price-box"><span class="old-price">₹2,999</span> ₹1,499</div></div>
-                        <button class="btn-choose">Choose Options</button>
-                    </div>
-                </div>
-                <!-- Product Card 4 -->
-                <div class="product-card">
-                    <div>
-                        <div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-clock"></i></div>
-                        <div class="product-name">Fire-Boltt Smartwatch Ultra</div>
-                    </div>
-                    <div>
-                        <div class="product-price-row"><div class="price-box"><span class="old-price">₹4,999</span> ₹2,299</div></div>
-                        <button class="btn-choose">Choose Options</button>
-                    </div>
-                </div>
+                <!-- 7 Cards added -->
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">iPhone 15 Pro Max Silicon Armor Case</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹1,199</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-bolt"></i></div><div class="product-name">Apple 20W Type-C Fast Adapter</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,999</span> ₹1,699</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Boat Rockerz Wireless Earbuds</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,999</span> ₹1,499</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-clock"></i></div><div class="product-name">Fire-Boltt Smartwatch Ultra</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹4,999</span> ₹2,299</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-headphones"></i></div><div class="product-name">OnePlus Bullets Wireless Z2</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,299</span> ₹1,799</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-battery-full"></i></div><div class="product-name">MagSafe Wireless Power Pad</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,799</span> ₹2,499</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">UV Curved Tempered Glass</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹599</span> ₹499</div></div><button class="btn-choose">Choose Options</button></div></div>
             </div>
         </div>
     </div>
 
-    <!-- Section 2: Best Sellers -->
+    <!-- Section 2: Best Sellers (6 Cards Auto-Slide) -->
     <div class="product-section-container">
-        <div class="section-title">
-            <span>Best Sellers</span>
-        </div>
+        <div class="section-title">Best Sellers</div>
         <div class="prod-slider-wrapper">
             <div class="prod-track" id="trackBest">
-                <div class="product-card">
-                    <div>
-                        <div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-battery-full"></i></div>
-                        <div class="product-name">MagSafe Wireless Magnetic Pad</div>
-                    </div>
-                    <div>
-                        <div class="product-price-row"><div class="price-box"><span class="old-price">₹2,799</span> ₹2,499</div></div>
-                        <button class="btn-choose">Choose Options</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div>
-                        <div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-link"></i></div>
-                        <div class="product-name">Braided Type-C Fast Cable</div>
-                    </div>
-                    <div>
-                        <div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹699</div></div>
-                        <button class="btn-choose">Choose Options</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div>
-                        <div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-shield-halved"></i></div>
-                        <div class="product-name">UV Curved Tempered Glass</div>
-                    </div>
-                    <div>
-                        <div class="product-price-row"><div class="price-box"><span class="old-price">₹599</span> ₹499</div></div>
-                        <button class="btn-choose">Choose Options</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div>
-                        <div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-headphones"></i></div>
-                        <div class="product-name">OnePlus Bullets Wireless Z2</div>
-                    </div>
-                    <div>
-                        <div class="product-price-row"><div class="price-box"><span class="old-price">₹2,299</span> ₹1,799</div></div>
-                        <button class="btn-choose">Choose Options</button>
-                    </div>
-                </div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Samsung Galaxy S24 Ultra Case</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,299</span> ₹999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-link"></i></div><div class="product-name">Braided Type-C Fast Cable</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹699</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Realme Buds T300 TWS</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,999</span> ₹2,199</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-clock"></i></div><div class="product-name">Noise ColorFit Pro 5</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹5,999</span> ₹3,499</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-bolt"></i></div><div class="product-name">Mi 22.5W Power Bank 10000mAh</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,999</span> ₹1,499</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Camera Lens Metallic Protector</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹499</span> ₹299</div></div><button class="btn-choose">Choose Options</button></div></div>
             </div>
         </div>
     </div>
 
-    <!-- Mobile Company Partner Logos 3-Second Ticker Slider -->
-    <div class="brands-section">
-        <div class="section-title" style="justify-content: center; margin-bottom: 20px;">
-            <span>Authorized Partner Brands</span>
+    <!-- Section 3: Dedicated Mobile Section (6 Cards Auto-Slide) -->
+    <div class="product-section-container">
+        <div class="section-title">Smartphones & Mobiles</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackMobile">
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">OnePlus Nord CE 4 (8GB/256GB)</div></div><div><div class="product-price-row"><div class="price-box">₹24,999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Redmi Note 13 Pro 5G</div></div><div><div class="product-price-row"><div class="price-box">₹22,999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">Realme Narzo 70 Pro 5G</div></div><div><div class="product-price-row"><div class="price-box">₹18,999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Vivo T3 5G (8GB/128GB)</div></div><div><div class="product-price-row"><div class="price-box">₹19,999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">Samsung Galaxy M35 5G</div></div><div><div class="product-price-row"><div class="price-box">₹16,999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Poco X6 Neo 5G</div></div><div><div class="product-price-row"><div class="price-box">₹14,999</div></div><button class="btn-choose">Choose Options</button></div></div>
+            </div>
         </div>
-        <div class="brand-slider-box" id="brandBox">
-            <div class="brand-badge">APPLE</div>
-            <div class="brand-badge">SAMSUNG</div>
-            <div class="brand-badge">ONEPLUS</div>
-            <div class="brand-badge">XIAOMI</div>
-            <div class="brand-badge">REALME</div>
-            <div class="brand-badge">BOAT</div>
+    </div>
+
+    <!-- Slow Brand Logos Ticker (Duplicated for infinite looping smoothness) -->
+    <div class="brands-section">
+        <div class="section-title" style="margin-bottom: 14px;">Authorized Partner Brands</div>
+        <div style="overflow: hidden; width: 100%;">
+            <div class="brand-slider-box">
+                <div class="brand-badge">APPLE</div>
+                <div class="brand-badge">SAMSUNG</div>
+                <div class="brand-badge">ONEPLUS</div>
+                <div class="brand-badge">XIAOMI</div>
+                <div class="brand-badge">REALME</div>
+                <div class="brand-badge">BOAT</div>
+                <div class="brand-badge">VIVO</div>
+                <div class="brand-badge">OPPO</div>
+                <!-- Duplicate for seamless scroll -->
+                <div class="brand-badge">APPLE</div>
+                <div class="brand-badge">SAMSUNG</div>
+                <div class="brand-badge">ONEPLUS</div>
+                <div class="brand-badge">XIAOMI</div>
+                <div class="brand-badge">REALME</div>
+                <div class="brand-badge">BOAT</div>
+                <div class="brand-badge">VIVO</div>
+                <div class="brand-badge">OPPO</div>
+            </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div>
-                <a href="#" class="logo" style="font-size: 20px; margin-bottom: 10px; display: inline-flex;">
-                    <i class="fa-solid fa-mobile-screen-button"></i> Soni Mobile Hub
-                </a>
-                <p style="max-width: 320px; margin-top: 8px;">Your trusted destination for premium mobile accessories, rugged covers, fast chargers, and smart gadgets.</p>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 10px;">Quick Links</h4>
-                <p>Catalog | Smartphones | Smartwatch | Support | Contact</p>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 15px; font-size: 12px;">
-            <p>© All Rights Reserved 2026 Soni Mobile Hub. Designed with High Quality Floral White Theme.</p>
-        </div>
+        <p>© All Rights Reserved 2026 Soni Mobile Hub. Pure White Professional Theme.</p>
     </footer>
 
-    <!-- JavaScript for Auto & Manual Sliders -->
+    <!-- JavaScript Automation -->
     <script>
-        // 1. Hero Main Slider (4-5 Seconds Auto Slide + Manual touch support)
+        // 1. Hero Auto-Slider (4.5 seconds)
         let currentHeroIndex = 0;
         const heroTrack = document.getElementById('heroTrack');
         const heroDots = document.querySelectorAll('.h-dot');
-        const totalHeroSlides = 4;
-
-        function updateHeroSlider() {
+        function updateHero() {
             heroTrack.style.transform = `translateX(-${currentHeroIndex * 25}%)`;
             heroDots.forEach(dot => dot.classList.remove('active'));
             heroDots[currentHeroIndex].classList.add('active');
         }
-
-        function currentHeroSlide(index) {
-            currentHeroIndex = index;
-            updateHeroSlider();
+        function currentHeroSlide(idx) {
+            currentHeroIndex = idx;
+            updateHero();
         }
-
         setInterval(() => {
-            currentHeroIndex = (currentHeroIndex + 1) % totalHeroSlides;
-            updateHeroSlider();
+            currentHeroIndex = (currentHeroIndex + 1) % 4;
+            updateHero();
         }, 4500);
 
-        // 2. Smart Search Box Suggestion Toggle
-        function showSuggestions() {
-            document.getElementById('searchSuggestions').style.display = 'block';
-        }
-        function hideSuggestions() {
-            setTimeout(() => {
-                document.getElementById('searchSuggestions').style.display = 'none';
-            }, 200);
-        }
-
-        // 3. Product Cards Auto-Slider (New Arrivals & Best Sellers)
-        function setupAutoSlider(trackId, intervalTime) {
+        // 2. Product Sliders Auto Scroll (Smooth step-by-step or continuous sliding)
+        function setupProductAutoSlide(trackId) {
             const track = document.getElementById(trackId);
-            let scrollPos = 0;
+            let scrollAmount = 0;
             setInterval(() => {
-                scrollPos += 280; // card width + gap
-                if (scrollPos >= track.scrollWidth - track.clientWidth) {
-                    scrollPos = 0;
+                scrollAmount += 260;
+                if (scrollAmount >= track.scrollWidth - track.clientWidth) {
+                    scrollAmount = 0;
                 }
-                track.scrollTo({ left: scrollPos, behavior: 'smooth' });
-            }, intervalTime);
+                track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+            }, 4000);
         }
-        setupAutoSlider('trackNew', 4000);
-        setupAutoSlider('trackBest', 5000);
-
-        // 4. Brand Logos 3-Second Step Ticker
-        const brandBox = document.getElementById('brandBox');
-        setInterval(() => {
-            let firstChild = brandBox.firstElementChild;
-            brandBox.appendChild(firstChild);
-        }, 3000);
+        setupProductAutoSlide('trackNew');
+        setupProductAutoSlide('trackBest');
+        setupProductAutoSlide('trackMobile');
     </script>
 </body>
-    </html>
-    
-    
+                                                                                                                                                                                                                                     </html>
+            
