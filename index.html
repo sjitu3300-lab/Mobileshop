@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soni Mobile Hub - Premium Store</title>
+    <title>Soni Mobile & T-Shirts Hub - Premium Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -72,10 +72,7 @@
             transition: color 0.2s;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--text-main);
-            font-weight: 600;
-        }
+        .nav-link:hover, .nav-link.active { color: var(--text-main); font-weight: 600; }
 
         .dropdown-menu {
             position: absolute;
@@ -85,7 +82,7 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             width: 240px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             display: none;
             padding: 10px 0;
             z-index: 1100;
@@ -135,29 +132,26 @@
 
         @media (min-width: 992px) { .nav-menu { display: flex; } }
 
-        /* Clicky 1:1 Ratio Hero Slider */
+        /* 1:1 Clickable Hero Slider */
         .hero-slider {
             max-width: 900px;
-            margin: 30px auto;
+            margin: 20px auto;
             padding: 0 20px;
         }
-
         .hero-container {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             overflow: hidden;
             position: relative;
-            aspect-ratio: 1 / 1; /* Complete 1:1 Size */
+            aspect-ratio: 1 / 1;
         }
-
         .hero-slides-track {
             display: flex;
             transition: transform 0.6s ease-in-out;
-            width: 500%; /* 5 slides */
+            width: 500%;
             height: 100%;
         }
-
         .hero-slide {
             width: 20%;
             height: 100%;
@@ -172,34 +166,10 @@
             text-align: center;
             background: linear-gradient(135deg, #f9fafb, #ffffff);
         }
-
-        .hero-slide h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .hero-slide p {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            max-width: 450px;
-        }
-
-        .hero-slide-img {
-            font-size: 110px;
-            color: var(--text-main);
-            margin-bottom: 20px;
-        }
-
-        .btn-slide-action {
-            background-color: var(--text-main);
-            color: #ffffff;
-            padding: 10px 24px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-        }
+        .hero-slide h1 { font-size: 30px; font-weight: 700; margin-bottom: 12px; }
+        .hero-slide p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; max-width: 400px; }
+        .hero-slide-img { font-size: 100px; color: var(--text-main); margin-bottom: 15px; }
+        .btn-slide-action { background-color: var(--text-main); color: #ffffff; padding: 10px 22px; border-radius: 6px; font-size: 13px; font-weight: 600; }
 
         .hero-dots {
             position: absolute;
@@ -210,20 +180,91 @@
             gap: 8px;
             z-index: 10;
         }
+        .h-dot { width: 8px; height: 8px; border-radius: 50%; background-color: #d1d5db; cursor: pointer; transition: background 0.3s; }
+        .h-dot.active { background-color: var(--text-main); width: 22px; border-radius: 4px; }
 
-        .h-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #d1d5db;
+        /* 1. Information Ticker (Below Hero Slider) */
+        .info-ticker {
+            background-color: #f3f4f6;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 20px 0;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .ticker-track {
+            display: inline-block;
+            animation: tickerSlide 25s linear infinite;
+        }
+        @keyframes tickerSlide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* 2. Search Bar & Filter Section */
+        .search-filter-section {
+            max-width: 1250px;
+            margin: 0 auto 30px auto;
+            padding: 0 20px;
+        }
+        .search-filter-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        @media(min-width: 768px) {
+            .search-filter-box { flex-direction: row; align-items: center; justify-content: space-between; }
+        }
+        .main-search-input {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 14px;
+            gap: 10px;
+            flex: 1;
+        }
+        .main-search-input input { border: none; outline: none; width: 100%; font-size: 13px; background: transparent; }
+        .filter-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        .pill-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
             cursor: pointer;
-            transition: background 0.3s;
+            white-space: nowrap;
+            transition: all 0.2s;
         }
-        .h-dot.active {
-            background-color: var(--text-main);
-            width: 22px;
-            border-radius: 4px;
+        .pill-btn:hover, .pill-btn.active { background: var(--text-main); color: #ffffff; border-color: var(--text-main); }
+
+        /* 3. Clickable Circular Categories */
+        .cat-scroll-section { max-width: 1250px; margin: 0 auto 40px auto; padding: 0 20px; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+        .cat-slider { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 10px; }
+        .cat-slider::-webkit-scrollbar { display: none; }
+        .cat-item { text-align: center; flex-shrink: 0; cursor: pointer; width: 95px; text-decoration: none; color: inherit; }
+        .cat-circle-img {
+            width: 80px; height: 80px; background-color: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px;
+            color: var(--text-main); margin: 0 auto 8px auto; transition: transform 0.2s;
         }
+        .cat-item:hover .cat-circle-img { transform: scale(1.05); border-color: var(--text-main); }
+        .cat-name { font-size: 12px; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -238,14 +279,12 @@
             <li class="nav-item">
                 <a href="#" class="nav-link"><i class="fa-solid fa-list"></i> Category <i class="fa-solid fa-angle-down" style="font-size: 10px;"></i></a>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">📱 Smartphones</a>
-                    <a href="#" class="dropdown-sub">↳ Android 5G Phones</a>
-                    <a href="#" class="dropdown-item">🎧 Audio & Sound</a>
-                    <a href="#" class="dropdown-sub">↳ Wireless Earbuds</a>
-                    <a href="#" class="dropdown-item">🔌 Charging Solutions</a>
-                    <a href="#" class="dropdown-sub">↳ Fast Adapters</a>
-                    <a href="#" class="dropdown-item">🛡️ Protection & Cases</a>
-                    <a href="#" class="dropdown-sub">↳ Silicone & Armor Covers</a>
+                    <a href="#mobile-section" class="dropdown-item">📱 Smartphones</a>
+                    <a href="#cover-section" class="dropdown-item">🛡️ Mobile Covers</a>
+                    <a href="#earpods-section" class="dropdown-item">🎧 Wireless Earpods</a>
+                    <a href="#glass-section" class="dropdown-item">👓 Mobile Glass</a>
+                    <a href="#charger-section" class="dropdown-item">🔌 Fast Chargers</a>
+                    <a href="#tshirts-section" class="dropdown-item">👕 Custom T-Shirts</a>
                 </div>
             </li>
             <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-blog"></i> Blog</a></li>
@@ -258,39 +297,34 @@
         </div>
     </header>
 
-    <!-- Clicky 1:1 Hero Slider (5 Slides) -->
+    <!-- 1:1 Clickable Hero Slider -->
     <div class="hero-slider">
         <div class="hero-container">
             <div class="hero-slides-track" id="heroTrack">
-                <!-- Slide 1: Mobile -->
                 <a href="#mobile-section" class="hero-slide">
                     <div class="hero-slide-img"><i class="fa-solid fa-mobile-screen"></i></div>
                     <h1>Flagship 5G Smartphones</h1>
-                    <p>Explore high-performance smartphones with incredible camera quality and best local store warranty.</p>
+                    <p>Explore high-performance smartphones with incredible camera quality and best warranty.</p>
                     <span class="btn-slide-action">Explore Mobiles</span>
                 </a>
-                <!-- Slide 2: Charger -->
                 <a href="#charger-section" class="hero-slide">
                     <div class="hero-slide-img"><i class="fa-solid fa-bolt"></i></div>
                     <h1>Fast MagSafe Chargers</h1>
-                    <p>Power up your devices safely with certified 20W adapters and magnetic wireless charging pads.</p>
+                    <p>Power up your devices safely with certified 20W adapters and magnetic wireless pads.</p>
                     <span class="btn-slide-action">View Chargers</span>
                 </a>
-                <!-- Slide 3: Earpods -->
                 <a href="#earpods-section" class="hero-slide">
                     <div class="hero-slide-img"><i class="fa-solid fa-ear-listen"></i></div>
                     <h1>Pro Wireless Earbuds</h1>
-                    <p>Immerse yourself in pure bass with our trending wireless earbuds and active noise cancellation.</p>
+                    <p>Immerse yourself in pure bass with our trending wireless earbuds and noise cancellation.</p>
                     <span class="btn-slide-action">Shop Earpods</span>
                 </a>
-                <!-- Slide 4: Cover -->
                 <a href="#cover-section" class="hero-slide">
                     <div class="hero-slide-img"><i class="fa-solid fa-shield-halved"></i></div>
                     <h1>Rugged Armor Covers</h1>
-                    <p>Protect your phone in style with shockproof rugged armor cases and luxury matte finishes.</p>
+                    <p>Protect your phone in style with shockproof rugged armor cases and matte finishes.</p>
                     <span class="btn-slide-action">Browse Covers</span>
                 </a>
-                <!-- Slide 5: Glass -->
                 <a href="#glass-section" class="hero-slide">
                     <div class="hero-slide-img"><i class="fa-solid fa-glasses"></i></div>
                     <h1>UV Tempered Glass</h1>
@@ -306,32 +340,49 @@
                 <span class="h-dot" onclick="currentHeroSlide(4)"></span>
             </div>
         </div>
-                                                                                                                          </div>
-                <style>
-        .product-section-container {
-            max-width: 1250px;
-            margin: 0 auto 40px auto;
-            padding: 0 20px;
-        }
+    </div>
 
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
+    <!-- 1. Small Info Ticker Slider (Right to Left) -->
+    <div class="info-ticker">
+        <div class="ticker-track">
+            🔥 Special Offer: Flat 10% OFF on all MagSafe Accessories using code <strong>SONI10</strong> &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 🚚 Free Same-Day Delivery available on orders above ₹999 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 🛡️ 100% Original Products with Brand Warranty & Easy Exchange! &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 
+            🔥 Special Offer: Flat 10% OFF on all MagSafe Accessories using code <strong>SONI10</strong> &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 🚚 Free Same-Day Delivery available on orders above ₹999 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 🛡️ 100% Original Products with Brand Warranty & Easy Exchange!
+        </div>
+    </div>
 
-        .prod-slider-wrapper {
-            position: relative;
-            overflow: hidden;
-        }
+    <!-- 2. Search Bar & Filters with Graphics -->
+    <div class="search-filter-section">
+        <div class="search-filter-box">
+            <div class="main-search-input">
+                <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
+                <input type="text" placeholder="Search mobile accessories, t-shirts, chargers...">
+            </div>
+            <div class="filter-pills">
+                <button class="pill-btn active">All Items</button>
+                <button class="pill-btn">🏢 Apple / Samsung</button>
+                <button class="pill-btn">💰 Under ₹500</button>
+                <button class="pill-btn">💰 Under ₹1000</button>
+                <button class="pill-btn">⭐ Best Sellers</button>
+            </div>
+        </div>
+    </div>
 
-        .prod-track {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding-bottom: 10px;
-        }
+    <!-- 3. Clickable Circular Categories -->
+    <div class="cat-scroll-section">
+        <div class="section-title">Explore Categories</div>
+        <div class="cat-slider">
+            <a href="#mobile-section" class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-mobile"></i></div><div class="cat-name">Mobile</div></a>
+            <a href="#cover-section" class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-shield-halved"></i></div><div class="cat-name">Cover</div></a>
+            <a href="#earpods-section" class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-ear-listen"></i></div><div class="cat-name">Earpods</div></a>
+            <a href="#glass-section" class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-glasses"></i></div><div class="cat-name">Glass</div></a>
+            <a href="#charger-section" class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-bolt"></i></div><div class="cat-name">Charger</div></a>
+            <a href="#tshirts-section" class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-shirt"></i></div><div class="cat-name">T-Shirts</div></a>
+        </div>
+    </div>
+        <style>
+        .product-section-container { max-width: 1250px; margin: 0 auto 40px auto; padding: 0 20px; }
+        .prod-slider-wrapper { position: relative; overflow: hidden; }
+        .prod-track { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 10px; }
         .prod-track::-webkit-scrollbar { display: none; }
 
         .product-card {
@@ -345,7 +396,6 @@
             flex-direction: column;
             justify-content: space-between;
         }
-
         @media (max-width: 1200px) { .product-card { flex: 0 0 calc(25% - 15px); } }
         @media (max-width: 900px) { .product-card { flex: 0 0 calc(33.33% - 14px); } }
         @media (max-width: 600px) { .product-card { flex: 0 0 calc(50% - 10px); } }
@@ -363,40 +413,132 @@
             margin-bottom: 12px;
             position: relative;
         }
-
         .badge-tag {
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            font-size: 9px;
-            background: #e5e7eb;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 700;
+            position: absolute; top: 8px; left: 8px; font-size: 9px;
+            background: #e5e7eb; padding: 2px 6px; border-radius: 4px; font-weight: 700;
         }
-
-        .product-name {
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            line-height: 1.4;
-        }
-
-        .product-price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0 14px 0;
-        }
-
+        .product-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; line-height: 1.3; }
+        .product-desc { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.4; }
+        .product-price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .price-box { font-size: 13px; font-weight: 700; }
         .old-price { font-size: 11px; color: var(--text-muted); text-decoration: line-through; margin-right: 4px; }
 
-        .btn-choose {
+        .btn-buy {
+            background-color: var(--text-main);
+            border: 1px solid var(--text-main);
+            color: #ffffff;
+            width: 100%;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            text-align: center;
+        }
+        .btn-buy:hover { opacity: 0.85; }
+    </style>
+
+    <!-- 1. New Arrivals -->
+    <div class="product-section-container">
+        <div class="section-title">New Arrivals</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackNew">
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">iPhone 15 Pro Max Case</div><div class="product-desc">Silicon matte finish with extreme drop defense protection.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹1,199</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-bolt"></i></div><div class="product-name">Apple 20W Type-C Adapter</div><div class="product-desc">Original ultra fast charging wall power brick adapter.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,999</span> ₹1,699</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Boat Rockerz Earbuds</div><div class="product-desc">True wireless stereo pods with 40H playtime battery.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,999</span> ₹1,499</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-clock"></i></div><div class="product-name">Fire-Boltt Ultra Watch</div><div class="product-desc">Bluetooth calling smartwatch with HD vibrant display.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹4,999</span> ₹2,299</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-headphones"></i></div><div class="product-name">OnePlus Bullets Z2</div><div class="product-desc">Wireless neckband earphone with fast charging support.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,299</span> ₹1,799</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-battery-full"></i></div><div class="product-name">MagSafe Wireless Pad</div><div class="product-desc">Magnetic fast charging pad compatible with all iPhones.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,799</span> ₹2,499</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">UV Tempered Glass</div><div class="product-desc">Full glue curved glass protector with UV light kit.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹599</span> ₹499</div></div><button class="btn-buy">Buy Now</button></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Best Sellers -->
+    <div class="product-section-container">
+        <div class="section-title">Best Sellers</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackBest">
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Galaxy S24 Ultra Cover</div><div class="product-desc">Heavy duty hybrid armor kickstand shockproof case.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,299</span> ₹999</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-link"></i></div><div class="product-name">Braided Type-C Cable</div><div class="product-desc">Tangle-free heavy duty nylon braided fast sync cable.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹699</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Realme Buds T300 TWS</div><div class="product-desc">30dB active noise cancellation with 360 spatial audio.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,999</span> ₹2,199</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-clock"></i></div><div class="product-name">Noise ColorFit Pro 5</div><div class="product-desc">AMOLED display fitness tracker with multiple sports modes.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹5,999</span> ₹3,499</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-bolt"></i></div><div class="product-name">Mi 10000mAh Power Bank</div><div class="product-desc">Dual input port compact portable backup charger power bank.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,999</span> ₹1,499</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Camera Lens Protector</div><div class="product-desc">Individual metallic ring glass guard for scratch safety.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹499</span> ₹299</div></div><button class="btn-buy">Buy Now</button></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Mobile Section -->
+    <div class="product-section-container" id="mobile-section">
+        <div class="section-title">Smartphones & Mobiles</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackMobile">
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">OnePlus Nord CE 4 5G</div><div class="product-desc">8GB RAM, 256GB Storage, AMOLED 120Hz smooth display.</div></div><div><div class="product-price-row"><div class="price-box">₹24,999</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Redmi Note 13 Pro 5G</div><div class="product-desc">200MP OIS camera system with fast 67W turbo charging.</div></div><div><div class="product-price-row"><div class="price-box">₹22,999</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">Realme Narzo 70 Pro 5G</div><div class="product-desc">Sony IMX890 OIS camera with air gesture functionality.</div></div><div><div class="product-price-row"><div class="price-box">₹18,999</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Vivo T3 5G</div><div class="product-desc">Dimensity 7200 processor with 5000mAh battery backup.</div></div><div><div class="product-price-row"><div class="price-box">₹19,999</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">Samsung Galaxy M35 5G</div><div class="product-desc">Super AMOLED s-display with massive 6000mAh battery.</div></div><div><div class="product-price-row"><div class="price-box">₹16,999</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Poco X6 Neo 5G</div><div class="product-desc">Ultra slim bezel-less design with 108MP dual camera.</div></div><div><div class="product-price-row"><div class="price-box">₹14,999</div></div><button class="btn-buy">Buy Now</button></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Cover Section -->
+    <div class="product-section-container" id="cover-section">
+        <div class="section-title">Mobile Covers & Cases</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackCover">
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Liquid Silicone Matte Cover</div><div class="product-desc">Soft microfiber lining inner shell with silky smooth grip.</div></div><div><div class="product-price-row"><div class="price-box">₹399</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Transparent Airbag Case</div><div class="product-desc">Crystal clear anti-yellowing bumper drop tested back case.</div></div><div><div class="product-price-row"><div class="price-box">₹299</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Magnetic Ring Armor Case</div><div class="product-desc">360 degree rotatable stand ring with magnetic car mount base.</div></div><div><div class="product-price-row"><div class="price-box">₹599</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Designer Printed Glass Case</div><div class="product-desc">Tempered glass back print with high definition graphics.</div></div><div><div class="product-price-row"><div class="price-box">₹499</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Carbon Fiber Rugged Cover</div><div class="product-desc">Heavy duty protective armour with brushed carbon texture.</div></div><div><div class="product-price-row"><div class="price-box">₹699</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Flip Leather Wallet Case</div><div class="product-desc">Card slots holder stand folio premium PU leather cover.</div></div><div><div class="product-price-row"><div class="price-box">₹799</div></div><button class="btn-buy">Buy Now</button></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Earpods Section -->
+    <div class="product-section-container" id="earpods-section">
+        <div class="section-title">Wireless Earpods & Audio</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackEarpods">
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Apple AirPods Pro (2nd Gen)</div><div class="product-desc">Active noise cancellation and adaptive audio transparency mode.</div></div><div><div class="product-price-row"><div class="price-box">₹20,999</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Boat Airdopes 141 Pro</div><div class="product-desc">100H playtime beast mode low latency gaming ear pods.</div></div><div><div class="product-price-row"><div class="price-box">₹1,199</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">OnePlus Buds 3 Pro</div><div class="product-desc">Co-axial dual drivers with hi-res audio wireless support.</div></div><div><div class="product-price-row"><div class="price-box">₹4,499</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Realme Buds Air 6</div><div class="product-desc">50dB smart noise cancellation with 6-mic clear call tech.</div></div><div><div class="product-price-row"><div class="price-box">₹2,999</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Boult Audio AirBass</div><div class="product-desc">Lightning Boult fast charging ENC gaming wireless pods.</div></div><div><div class="product-price-row"><div class="price-box">₹999</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">JBL Wave Beam Buds</div><div class="product-desc">Deep bass sound with smart ambient talkthru technology.</div></div><div><div class="product-price-row"><div class="price-box">₹2,799</div></div><button class="btn-buy">Buy Now</button></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Mobile Glass Section -->
+    <div class="product-section-container" id="glass-section">
+        <div class="section-title">Mobile Screen Glasses</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackGlass">
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">UV Curved Edge Glass</div><div class="product-desc">Liquid UV adhesive full coverage screen guard protector.</div></div><div><div class="product-price-row"><div class="price-box">₹499</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Matte Anti-Glare Glass</div><div class="product-desc">Fingerprint resistant smooth frosted finish gaming glass.</div></div><div><div class="product-price-row"><div class="price-box">₹399</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Privacy Anti-Spy Glass</div><div class="product-desc">28-degree side view protection anti-peeping tempered guard.</div></div><div><div class="product-price-row"><div class="price-box">₹599</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">9H Hardness Clear Guard</div><div class="product-desc">Scratch-proof ultra thin HD transparent glass protector.</div></div><div><div class="product-price-row"><div class="price-box">₹249</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Blue Light Eye Protector</div><div class="product-desc">Blocks harmful radiation strain safe digital viewing glass.</div></div><div><div class="product-price-row"><div class="price-box">₹449</div></div><button class="btn-buy">Buy Now</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Camera Lens Ring Glass</div><div class="product-desc">Individual tempered aluminum frame camera glass cover.</div></div><div><div class="product-price-row"><div class="price-box">₹199</div></div><button class="btn-buy">Buy Now</button></div></div>
+            </div>
+         <!-- 8. Custom T-Shirts Section (10 Cards with Custom & Buy Buttons) -->
+    <style>
+        .tshirt-action-btns {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .btn-custom {
             background-color: transparent;
             border: 1px solid var(--text-main);
             color: var(--text-main);
-            width: 100%;
+            flex: 1;
             padding: 8px;
             border-radius: 6px;
             font-size: 12px;
@@ -405,207 +547,58 @@
             transition: all 0.2s;
             text-align: center;
         }
-        .btn-choose:hover { background-color: var(--text-main); color: #ffffff; }
-
-        /* Slow Brand Ticker */
-        .brands-section {
-            max-width: 1250px;
-            margin: 40px auto;
-            padding: 0 20px;
-            overflow: hidden;
-        }
-        .brand-slider-box {
-            display: flex;
-            gap: 20px;
-            width: max-content;
-            animation: slowTicker 25s linear infinite;
-        }
-        @keyframes slowTicker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .brand-badge {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 14px 35px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 15px;
-            color: var(--text-main);
-            white-space: nowrap;
-        }
-
-        /* Professional Footer */
-        footer {
-            background-color: #f9fafb;
-            border-top: 1px solid var(--border-color);
-            margin-top: 60px;
-            padding: 50px 20px 20px 20px;
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-        .footer-grid {
-            max-width: 1250px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-        @media (min-width: 768px) {
-            .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
-        }
-        .footer-col h4 { color: var(--text-main); font-size: 15px; margin-bottom: 14px; }
-        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-        .footer-col ul a { text-decoration: none; color: var(--text-muted); transition: color 0.2s; }
-        .footer-col ul a:hover { color: var(--text-main); }
-        .footer-bottom {
-            max-width: 1250px;
-            margin: 40px auto 0 auto;
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
-            text-align: center;
-            font-size: 12px;
-        }
+        .btn-custom:hover { background-color: #f3f4f6; }
     </style>
 
-    <!-- 1. New Arrivals Section (7 Cards) -->
-    <div class="product-section-container">
-        <div class="section-title">New Arrivals</div>
+    <div class="product-section-container" id="tshirts-section">
+        <div class="section-title">Custom T-Shirts Collection</div>
         <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackNew">
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">iPhone 15 Pro Max Silicon Armor Case</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹1,199</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-bolt"></i></div><div class="product-name">Apple 20W Type-C Fast Adapter</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,999</span> ₹1,699</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Boat Rockerz Wireless Earbuds</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,999</span> ₹1,499</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-clock"></i></div><div class="product-name">Fire-Boltt Smartwatch Ultra</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹4,999</span> ₹2,299</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-headphones"></i></div><div class="product-name">OnePlus Bullets Wireless Z2</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,299</span> ₹1,799</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-battery-full"></i></div><div class="product-name">MagSafe Wireless Power Pad</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,799</span> ₹2,499</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">UV Curved Tempered Glass</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹599</span> ₹499</div></div><button class="btn-choose">Choose Options</button></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. Best Sellers Section (6 Cards) -->
-    <div class="product-section-container">
-        <div class="section-title">Best Sellers</div>
-        <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackBest">
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Samsung Galaxy S24 Ultra Case</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,299</span> ₹999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-link"></i></div><div class="product-name">Braided Type-C Fast Cable</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹699</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Realme Buds T300 TWS</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,999</span> ₹2,199</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-clock"></i></div><div class="product-name">Noise ColorFit Pro 5</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹5,999</span> ₹3,499</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-bolt"></i></div><div class="product-name">Mi 22.5W Power Bank 10000mAh</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,999</span> ₹1,499</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Camera Lens Metallic Protector</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹499</span> ₹299</div></div><button class="btn-choose">Choose Options</button></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. Mobile Section (6 Cards) -->
-    <div class="product-section-container" id="mobile-section">
-        <div class="section-title">Smartphones & Mobiles</div>
-        <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackMobile">
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">OnePlus Nord CE 4 (8GB/256GB)</div></div><div><div class="product-price-row"><div class="price-box">₹24,999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Redmi Note 13 Pro 5G</div></div><div><div class="product-price-row"><div class="price-box">₹22,999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">Realme Narzo 70 Pro 5G</div></div><div><div class="product-price-row"><div class="price-box">₹18,999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Vivo T3 5G (8GB/128GB)</div></div><div><div class="product-price-row"><div class="price-box">₹19,999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">Samsung Galaxy M35 5G</div></div><div><div class="product-price-row"><div class="price-box">₹16,999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><i class="fa-solid fa-mobile-screen"></i></div><div class="product-name">Poco X6 Neo 5G</div></div><div><div class="product-price-row"><div class="price-box">₹14,999</div></div><button class="btn-choose">Choose Options</button></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. Cover Section (6 Cards) -->
-    <div class="product-section-container" id="cover-section">
-        <div class="section-title">Mobile Covers & Cases</div>
-        <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackCover">
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Liquid Silicone Matte Cover</div></div><div><div class="product-price-row"><div class="price-box">₹399</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Transparent Airbag Back Cover</div></div><div><div class="product-price-row"><div class="price-box">₹299</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Magnetic Ring Armor Case</div></div><div><div class="product-price-row"><div class="price-box">₹599</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Designer Printed Glass Case</div></div><div><div class="product-price-row"><div class="price-box">₹499</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Carbon Fiber Rugged Cover</div></div><div><div class="product-price-row"><div class="price-box">₹699</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Flip Leather Wallet Case</div></div><div><div class="product-price-row"><div class="price-box">₹799</div></div><button class="btn-choose">Choose Options</button></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 5. Earpods Section (6 Cards) -->
-    <div class="product-section-container" id="earpods-section">
-        <div class="section-title">Wireless Earpods & Audio</div>
-        <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackEarpods">
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Apple AirPods Pro (2nd Gen)</div></div><div><div class="product-price-row"><div class="price-box">₹20,999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Boat Airdopes 141 Pro TWS</div></div><div><div class="product-price-row"><div class="price-box">₹1,199</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">OnePlus Buds 3 Pro</div></div><div><div class="product-price-row"><div class="price-box">₹4,499</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Realme Buds Air 6</div></div><div><div class="product-price-row"><div class="price-box">₹2,999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Boult Audio AirBass</div></div><div><div class="product-price-row"><div class="price-box">₹999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Jonas True Wireless Pods</div></div><div><div class="product-price-row"><div class="price-box">₹1,799</div></div><button class="btn-choose">Choose Options</button></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 6. Mobile Glass Section (6 Cards) -->
-    <div class="product-section-container" id="glass-section">
-        <div class="section-title">Mobile Screen Glasses</div>
-        <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackGlass">
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">UV Curved Edge Tempered Glass</div></div><div><div class="product-price-row"><div class="price-box">₹499</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Matte Anti-Glare Gaming Glass</div></div><div><div class="product-price-row"><div class="price-box">₹399</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Privacy Anti-Spy Tempered Glass</div></div><div><div class="product-price-row"><div class="price-box">₹599</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">9H Hardness Clear Screen Guard</div></div><div><div class="product-price-row"><div class="price-box">₹249</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Blue Light Eye Protection Glass</div></div><div><div class="product-price-row"><div class="price-box">₹449</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Camera Glass Protector Ring</div></div><div><div class="product-price-row"><div class="price-box">₹199</div></div><button class="btn-choose">Choose Options</button></div></div>
-            </div>
-        </div>
-    </div>
-  <!-- 7. Charger Section (6 Cards) -->
-    <div class="product-section-container" id="charger-section">
-        <div class="section-title">Chargers & Power Adapters</div>
-        <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackCharger">
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">Apple 20W USB-C Power Adapter</div></div><div><div class="product-price-row"><div class="price-box">₹1,699</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">OnePlus 80W SuperVOOC Charger</div></div><div><div class="product-price-row"><div class="price-box">₹1,999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">Samsung 25W PD Fast Wall Charger</div></div><div><div class="product-price-row"><div class="price-box">₹1,299</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">Mi 33W SonicCharge 2.0 Adapter</div></div><div><div class="product-price-row"><div class="price-box">₹999</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">Portronics Dual Port Fast Charger</div></div><div><div class="product-price-row"><div class="price-box">₹499</div></div><button class="btn-choose">Choose Options</button></div></div>
-                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">MagSafe Magnetic Wireless Pad</div></div><div><div class="product-price-row"><div class="price-box">₹2,499</div></div><button class="btn-choose">Choose Options</button></div></div>
+            <div class="prod-track" id="trackTshirts">
+                <!-- 10 T-Shirt Cards -->
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-shirt"></i></div><div class="product-name">Oversized Black Streetwear</div><div class="product-desc">100% heavy cotton bio-washed custom printed graphic tee.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,299</span> ₹799</div></div><div class="tshirt-action-btns"><button class="btn-custom">Custom</button><button class="btn-buy">Buy</button></div></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">TREND</span><i class="fa-solid fa-shirt"></i></div><div class="product-name">Minimalist Aesthetic White Tee</div><div class="product-desc">Clean typography embroidery premium breathable fabric t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹649</div></div><div class="tshirt-action-btns"><button class="btn-custom">Custom</button><button class="btn-buy">Buy</button></div></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-shirt"></i></div><div class="product-name">Vintage Anime Graphic Tee</div><div class="product-desc">Soft cotton oversized aesthetic Japanese anime printed t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹899</div></div><div class="tshirt-action-btns"><button class="btn-custom">Custom</button><button class="btn-buy">Buy</button></div></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-shirt"></i></div><div class="product-name">Solid Olive Green Polo Tee</div><div class="product-desc">Classic collar ribbed sleeve casual smart summer polo shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,199</span> ₹749</div></div><div class="tshirt-action-btns"><button class="btn-custom">Custom</button><button class="btn-buy">Buy</button></div></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">SALE</span><i class="fa-solid fa-shirt"></i></div><div class="product-name">Cyberpunk Neon Print Tee</div><div class="product-desc">Glow aesthetic futuristic cyberpunk techwear graphic t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,399</span> ₹849</div></div><div class="tshirt-action-btns"><button class="btn-custom">Custom</button><button class="btn-buy">Buy</button></div></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-shirt"></i></div><div class="product-name">Classic Navy Blue Cotton Tee</div><div class="product-desc">Everyday comfort regular fit solid color basic t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹899</span> ₹499</div></div><div class="tshirt-action-btns"><button class="btn-custom">Custom</button><button class="btn-buy">Buy</button></div></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">POPULAR</span><i class="fa-solid fa-shirt"></i></div><div class="product-name">Lo-Fi Chill Vibes Graphic Tee</div><div class="product-desc">Pastel color aesthetic relaxing lo-fi art printed shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,299</span> ₹799</div></div><div class="tshirt-action-btns"><button class="btn-custom">Custom</button><button class="btn-buy">Buy</button></div></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-shirt"></i></div><div class="product-name">Maroon Hooded T-Shirt</div><div class="product-desc">Half sleeve hoodie streetwear urban fashion casual t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,599</span> ₹999</div></div><div class="tshirt-action-btns"><button class="btn-custom">Custom</button><button class="btn-buy">Buy</button></div></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><i class="fa-solid fa-shirt"></i></div><div class="product-name">Typography Quote Cotton Tee</div><div class="product-desc">Inspirational bold quote print premium quality cotton tee.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹599</div></div><div class="tshirt-action-btns"><button class="btn-custom">Custom</button><button class="btn-buy">Buy</button></div></div></div>
+                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-shirt"></i></div><div class="product-name">Tie-Dye Custom Streetwear Tee</div><div class="product-desc">Handcrafted multi-color unique pattern festival t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹899</div></div><div class="tshirt-action-btns"><button class="btn-custom">Custom</button><button class="btn-buy">Buy</button></div></div></div>
             </div>
         </div>
     </div>
 
     <!-- Slow Brand Logos Ticker -->
+    <style>
+        .brands-section { max-width: 1250px; margin: 40px auto; padding: 0 20px; overflow: hidden; }
+        .brand-slider-box { display: flex; gap: 20px; width: max-content; animation: slowTicker 25s linear infinite; }
+        @keyframes slowTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .brand-badge {
+            background-color: var(--bg-card); border: 1px solid var(--border-color);
+            padding: 14px 35px; border-radius: 8px; font-weight: 700; font-size: 15px; color: var(--text-main); white-space: nowrap;
+        }
+    </style>
     <div class="brands-section">
         <div class="section-title" style="margin-bottom: 14px;">Authorized Partner Brands</div>
         <div style="overflow: hidden; width: 100%;">
             <div class="brand-slider-box">
-                <div class="brand-badge">APPLE</div>
-                <div class="brand-badge">SAMSUNG</div>
-                <div class="brand-badge">ONEPLUS</div>
-                <div class="brand-badge">XIAOMI</div>
-                <div class="brand-badge">REALME</div>
-                <div class="brand-badge">BOAT</div>
-                <div class="brand-badge">VIVO</div>
-                <div class="brand-badge">OPPO</div>
-                <div class="brand-badge">APPLE</div>
-                <div class="brand-badge">SAMSUNG</div>
-                <div class="brand-badge">ONEPLUS</div>
-                <div class="brand-badge">XIAOMI</div>
-                <div class="brand-badge">REALME</div>
-                <div class="brand-badge">BOAT</div>
-                <div class="brand-badge">VIVO</div>
-                <div class="brand-badge">OPPO</div>
+                <div class="brand-badge">APPLE</div><div class="brand-badge">SAMSUNG</div><div class="brand-badge">ONEPLUS</div><div class="brand-badge">XIAOMI</div>
+                <div class="brand-badge">REALME</div><div class="brand-badge">BOAT</div><div class="brand-badge">VIVO</div><div class="brand-badge">OPPO</div>
+                <div class="brand-badge">APPLE</div><div class="brand-badge">SAMSUNG</div><div class="brand-badge">ONEPLUS</div><div class="brand-badge">XIAOMI</div>
+                <div class="brand-badge">REALME</div><div class="brand-badge">BOAT</div><div class="brand-badge">VIVO</div><div class="brand-badge">OPPO</div>
             </div>
         </div>
     </div>
 
-    <!-- Professional Footer (Left Logo, Right Pages & Category Setup) -->
+    <!-- Professional Footer (Left Logo, Right Pages & Category Setup including T-Shirts) -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="#" class="logo" style="margin-bottom: 12px; display: inline-flex;">
                     <i class="fa-solid fa-mobile-screen-button"></i> Soni Mobile Hub
                 </a>
-                <p style="max-width: 340px; line-height: 1.5;">Your ultimate tech destination for premium smartphones, protective covers, certified chargers, and high-quality audio accessories.</p>
+                <p style="max-width: 340px; line-height: 1.5;">Your ultimate tech & fashion destination for premium smartphones, protective covers, certified chargers, audio accessories, and custom t-shirts.</p>
             </div>
             <div class="footer-col">
                 <h4>Quick Pages</h4>
@@ -623,6 +616,7 @@
                     <li><a href="#cover-section">Mobile Covers</a></li>
                     <li><a href="#earpods-section">Wireless Earpods</a></li>
                     <li><a href="#charger-section">Fast Chargers</a></li>
+                    <li><a href="#tshirts-section">Custom T-Shirts</a></li>
                 </ul>
             </div>
         </div>
@@ -631,7 +625,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript Automation -->
+    <!-- JavaScript Automation for Hero & Smooth Product Auto-Sliders -->
     <script>
         // 1. Hero Auto-Slider (4.5 seconds)
         let currentHeroIndex = 0;
@@ -670,6 +664,8 @@
         setupProductAutoSlide('trackEarpods');
         setupProductAutoSlide('trackGlass');
         setupProductAutoSlide('trackCharger');
+        setupProductAutoSlide('trackTshirts');
     </script>
 </body>
-                    </html>                                                                                                              
+                                                                                                                                                                                                                                                                                                                                                                                                                                            </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                          
