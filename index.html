@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soni Mobile Hub - Catalog</title>
-    <!-- Google Fonts: Inter & Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -14,24 +14,22 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
-         :root {
-    --bg-main: #FAF7EE;          /* Floral White Background */
-    --bg-card: #ffffff;          /* Product cards ke liye pure white */
-    --border-color: #e5e0d1;     /* Soft matching border color */
-    --text-main: #5A5E63;        /* Image wala text & heading color */
-    --text-muted: #82868a;       /* Secondary description color */
-    --accent-color: #333333;     /* Buttons aur highlights ke liye dark neutral */
-}
+        :root {
+            --bg-main: #FAF7EE;          /* Floral White Background */
+            --bg-card: #ffffff;          /* Pure White Cards */
+            --border-color: #dfdbce;     /* Soft matching border */
+            --text-main: #31372B;        /* Black Olive Text Color */
+            --text-muted: #626a58;       /* Lighter olive-gray for secondary text */
+        }
 
-body {
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    font-family: 'Poppins', 'Inter', sans-serif; /* Soft rounded modern feel */
-}
-
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            padding-bottom: 70px;
+        }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
@@ -92,7 +90,7 @@ body {
         .search-bar-top {
             display: none;
             align-items: center;
-            background-color: #f8fafc;
+            background-color: #f2efe4;
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 6px 12px;
@@ -138,7 +136,7 @@ body {
             top: -6px;
             right: -8px;
             background-color: var(--text-main);
-            color: #ffffff;
+            color: #FAF7EE;
             font-size: 9px;
             font-weight: 700;
             padding: 2px 5px;
@@ -164,10 +162,11 @@ body {
             font-size: 20px;
             font-weight: 600;
             letter-spacing: 0.5px;
+            color: var(--text-main);
         }
 
         .sort-dropdown {
-            background-color: #f8fafc;
+            background-color: #f2efe4;
             border: 1px solid var(--border-color);
             color: var(--text-main);
             padding: 8px 14px;
@@ -208,12 +207,12 @@ body {
         }
 
         .product-card:hover {
-            border-color: #cbd5e1;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #b5b0a1;
+            box-shadow: 0 4px 12px rgba(49, 55, 43, 0.05);
         }
 
         .product-img-box {
-            background-color: #ffffff;
+            background-color: #FAF7EE;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             height: 180px;
@@ -232,7 +231,7 @@ body {
             left: 10px;
             font-size: 10px;
             color: var(--text-main);
-            background: #f1f5f9;
+            background: #f2efe4;
             padding: 2px 6px;
             border-radius: 4px;
             font-weight: 500;
@@ -242,7 +241,7 @@ body {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #f1f5f9;
+            background-color: #f2efe4;
             color: var(--text-main);
             font-size: 10px;
             font-weight: 700;
@@ -295,12 +294,12 @@ body {
 
         .btn-choose:hover {
             background-color: var(--text-main);
-            color: #ffffff;
+            color: #FAF7EE;
         }
 
         /* Footer */
         footer {
-            background-color: #f8fafc;
+            background-color: #f2efe4;
             border-top: 1px solid var(--border-color);
             margin-top: 60px;
             padding: 40px 20px 20px 20px;
@@ -403,7 +402,7 @@ body {
             </div>
         </div>
     </header>
-
+    
     <!-- Catalog Main Section -->
     <div class="container">
         <div class="catalog-header">
@@ -569,5 +568,5 @@ body {
     </footer>
 
 </body>
-                                                                 </html>
-
+    </html>
+                            
