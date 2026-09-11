@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soni Mobile Hub - Premium Store</title>
-    <!-- Google Fonts: Inter for clean professional look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -18,11 +16,11 @@
         }
 
         :root {
-            --bg-main: #ffffff;          /* Pure White Theme */
-            --bg-card: #f9fafb;          /* Light Gray Card Background */
-            --border-color: #e5e7eb;     /* Clean Border */
-            --text-main: #000000;        /* Pure Black Text */
-            --text-muted: #4b5563;       /* Muted Gray Text */
+            --bg-main: #ffffff;
+            --bg-card: #f9fafb;
+            --border-color: #e5e7eb;
+            --text-main: #000000;
+            --text-muted: #4b5563;
         }
 
         body {
@@ -31,7 +29,6 @@
             padding-bottom: 70px;
         }
 
-        /* Top Bar & Header */
         header {
             background-color: var(--bg-main);
             border-bottom: 1px solid var(--border-color);
@@ -54,7 +51,6 @@
             text-decoration: none;
         }
 
-        /* Navigation Menu with Dropdown */
         .nav-menu {
             display: none;
             list-style: none;
@@ -62,9 +58,7 @@
             align-items: center;
         }
 
-        .nav-item {
-            position: relative;
-        }
+        .nav-item { position: relative; }
 
         .nav-link {
             text-decoration: none;
@@ -97,9 +91,7 @@
             z-index: 1100;
         }
 
-        .nav-item:hover .dropdown-menu {
-            display: block;
-        }
+        .nav-item:hover .dropdown-menu { display: block; }
 
         .dropdown-item {
             padding: 10px 18px;
@@ -109,17 +101,13 @@
             font-size: 13px;
             font-weight: 500;
         }
-
-        .dropdown-item:hover {
-            background-color: #f3f4f6;
-        }
+        .dropdown-item:hover { background-color: #f3f4f6; }
 
         .dropdown-sub {
-            padding-left: 28px;
+            padding: 6px 0 6px 28px;
             font-size: 12px;
             color: var(--text-muted);
             display: block;
-            padding: 6px 0 6px 28px;
             text-decoration: none;
         }
         .dropdown-sub:hover { color: var(--text-main); }
@@ -130,16 +118,8 @@
             font-size: 18px;
             align-items: center;
         }
-
-        .header-icons a {
-            color: var(--text-muted);
-            position: relative;
-            text-decoration: none;
-        }
-
-        .header-icons a:hover {
-            color: var(--text-main);
-        }
+        .header-icons a { color: var(--text-muted); position: relative; text-decoration: none; }
+        .header-icons a:hover { color: var(--text-main); }
 
         .cart-badge {
             position: absolute;
@@ -153,16 +133,13 @@
             border-radius: 50%;
         }
 
-        @media (min-width: 992px) {
-            .nav-menu { display: flex; }
-        }
+        @media (min-width: 992px) { .nav-menu { display: flex; } }
 
-        /* Hero Slider Section (1:1 Aspect Ratio Right Image, Left Buttons) */
+        /* Clicky 1:1 Ratio Hero Slider */
         .hero-slider {
-            max-width: 1250px;
-            margin: 25px auto;
+            max-width: 900px;
+            margin: 30px auto;
             padding: 0 20px;
-            position: relative;
         }
 
         .hero-container {
@@ -171,97 +148,57 @@
             border-radius: 16px;
             overflow: hidden;
             position: relative;
+            aspect-ratio: 1 / 1; /* Complete 1:1 Size */
         }
 
         .hero-slides-track {
             display: flex;
             transition: transform 0.6s ease-in-out;
-            width: 400%;
+            width: 500%; /* 5 slides */
+            height: 100%;
         }
 
         .hero-slide {
-            width: 25%;
+            width: 20%;
+            height: 100%;
             flex-shrink: 0;
-            padding: 40px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            text-decoration: none;
+            color: inherit;
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #f9fafb, #ffffff);
         }
 
-        @media (min-width: 768px) {
-            .hero-slide {
-                flex-direction: row;
-                padding: 50px;
-            }
-        }
-
-        .hero-content {
-            flex: 1;
-            padding-right: 20px;
-        }
-
-        .hero-content h1 {
+        .hero-slide h1 {
             font-size: 32px;
             font-weight: 700;
-            margin-bottom: 12px;
-            line-height: 1.2;
+            margin-bottom: 15px;
         }
 
-        .hero-content p {
-            font-size: 14px;
+        .hero-slide p {
+            font-size: 15px;
             color: var(--text-muted);
-            margin-bottom: 24px;
+            margin-bottom: 25px;
             max-width: 450px;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .btn-explore {
-            background-color: transparent;
-            border: 1px solid var(--text-main);
+        .hero-slide-img {
+            font-size: 110px;
             color: var(--text-main);
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
+            margin-bottom: 20px;
         }
-        .btn-explore:hover { background-color: #f3f4f6; }
 
-        .btn-buy-now {
+        .btn-slide-action {
             background-color: var(--text-main);
-            border: 1px solid var(--text-main);
             color: #ffffff;
-            padding: 10px 22px;
+            padding: 10px 24px;
             border-radius: 6px;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-        .btn-buy-now:hover { opacity: 0.85; }
-
-        .hero-img-box {
-            width: 100%;
-            max-width: 320px;
-            aspect-ratio: 1 / 1; /* Exact 1:1 Size */
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 100px;
-            color: var(--text-main);
-            margin-top: 20px;
-        }
-        @media (min-width: 768px) {
-            .hero-img-box { margin-top: 0; }
         }
 
         .hero-dots {
@@ -271,6 +208,7 @@
             transform: translateX(-50%);
             display: flex;
             gap: 8px;
+            z-index: 10;
         }
 
         .h-dot {
@@ -286,56 +224,10 @@
             width: 22px;
             border-radius: 4px;
         }
-
-        /* Circular Category with Real Images */
-        .cat-scroll-section {
-            max-width: 1250px;
-            margin: 30px auto 40px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .cat-slider {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding-bottom: 10px;
-        }
-        .cat-slider::-webkit-scrollbar { display: none; }
-
-        .cat-item {
-            text-align: center;
-            flex-shrink: 0;
-            cursor: pointer;
-            width: 95px;
-        }
-
-        .cat-circle-img {
-            width: 80px;
-            height: 80px;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            color: var(--text-main);
-            margin: 0 auto 8px auto;
-            overflow: hidden;
-        }
-        .cat-name { font-size: 12px; font-weight: 600; }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <a href="#" class="logo">
             <i class="fa-solid fa-mobile-screen-button"></i>
@@ -348,16 +240,12 @@
                 <div class="dropdown-menu">
                     <a href="#" class="dropdown-item">📱 Smartphones</a>
                     <a href="#" class="dropdown-sub">↳ Android 5G Phones</a>
-                    <a href="#" class="dropdown-sub">↳ Feature Phones</a>
                     <a href="#" class="dropdown-item">🎧 Audio & Sound</a>
                     <a href="#" class="dropdown-sub">↳ Wireless Earbuds</a>
-                    <a href="#" class="dropdown-sub">↳ Bluetooth Neckbands</a>
                     <a href="#" class="dropdown-item">🔌 Charging Solutions</a>
-                    <a href="#" class="dropdown-sub">↳ Fast Adapters & Power Banks</a>
+                    <a href="#" class="dropdown-sub">↳ Fast Adapters</a>
                     <a href="#" class="dropdown-item">🛡️ Protection & Cases</a>
-                    <a href="#" class="dropdown-sub">↳ Silicone & Armor Cases</a>
-                    <a href="#" class="dropdown-item">⌚ Glass & Wearables</a>
-                    <a href="#" class="dropdown-sub">↳ UV Tempered Glass & Watches</a>
+                    <a href="#" class="dropdown-sub">↳ Silicone & Armor Covers</a>
                 </div>
             </li>
             <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-blog"></i> Blog</a></li>
@@ -370,82 +258,66 @@
         </div>
     </header>
 
-    <!-- Hero Slider (1:1 Ratio Right Image & Left Buttons) -->
+    <!-- Clicky 1:1 Hero Slider (5 Slides) -->
     <div class="hero-slider">
         <div class="hero-container">
             <div class="hero-slides-track" id="heroTrack">
-                <div class="hero-slide">
-                    <div class="hero-content">
-                        <h1>Flagship 5G Smartphones</h1>
-                        <p>Experience ultra-fast connectivity, stellar camera setups, and uncompromised performance at local store prices.</p>
-                        <div class="hero-buttons">
-                            <a href="#" class="btn-explore">Explore</a>
-                            <a href="#" class="btn-buy-now">Buy Now</a>
-                        </div>
-                    </div>
-                    <div class="hero-img-box"><i class="fa-solid fa-mobile-screen"></i></div>
-                </div>
-                <div class="hero-slide">
-                    <div class="hero-content">
-                        <h1>Pro Wireless Earbuds</h1>
-                        <p>Crystal clear active noise cancellation with deep bass built for true audiophiles on the go.</p>
-                        <div class="hero-buttons">
-                            <a href="#" class="btn-explore">Explore</a>
-                            <a href="#" class="btn-buy-now">Buy Now</a>
-                        </div>
-                    </div>
-                    <div class="hero-img-box"><i class="fa-solid fa-ear-listen"></i></div>
-                </div>
-                <div class="hero-slide">
-                    <div class="hero-content">
-                        <h1>Fast MagSafe Chargers</h1>
-                        <p>Secure magnetic wireless charging pads and 20W power adapters engineered for fast energy delivery.</p>
-                        <div class="hero-buttons">
-                            <a href="#" class="btn-explore">Explore</a>
-                            <a href="#" class="btn-buy-now">Buy Now</a>
-                        </div>
-                    </div>
-                    <div class="hero-img-box"><i class="fa-solid fa-bolt"></i></div>
-                </div>
-                <div class="hero-slide">
-                    <div class="hero-content">
-                        <h1>Rugged Armor Protection</h1>
-                        <p>Military-grade drop defense cases combined with edge-to-edge UV tempered glass screen guards.</p>
-                        <div class="hero-buttons">
-                            <a href="#" class="btn-explore">Explore</a>
-                            <a href="#" class="btn-buy-now">Buy Now</a>
-                        </div>
-                    </div>
-                    <div class="hero-img-box"><i class="fa-solid fa-shield-halved"></i></div>
-                </div>
+                <!-- Slide 1: Mobile -->
+                <a href="#mobile-section" class="hero-slide">
+                    <div class="hero-slide-img"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h1>Flagship 5G Smartphones</h1>
+                    <p>Explore high-performance smartphones with incredible camera quality and best local store warranty.</p>
+                    <span class="btn-slide-action">Explore Mobiles</span>
+                </a>
+                <!-- Slide 2: Charger -->
+                <a href="#charger-section" class="hero-slide">
+                    <div class="hero-slide-img"><i class="fa-solid fa-bolt"></i></div>
+                    <h1>Fast MagSafe Chargers</h1>
+                    <p>Power up your devices safely with certified 20W adapters and magnetic wireless charging pads.</p>
+                    <span class="btn-slide-action">View Chargers</span>
+                </a>
+                <!-- Slide 3: Earpods -->
+                <a href="#earpods-section" class="hero-slide">
+                    <div class="hero-slide-img"><i class="fa-solid fa-ear-listen"></i></div>
+                    <h1>Pro Wireless Earbuds</h1>
+                    <p>Immerse yourself in pure bass with our trending wireless earbuds and active noise cancellation.</p>
+                    <span class="btn-slide-action">Shop Earpods</span>
+                </a>
+                <!-- Slide 4: Cover -->
+                <a href="#cover-section" class="hero-slide">
+                    <div class="hero-slide-img"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h1>Rugged Armor Covers</h1>
+                    <p>Protect your phone in style with shockproof rugged armor cases and luxury matte finishes.</p>
+                    <span class="btn-slide-action">Browse Covers</span>
+                </a>
+                <!-- Slide 5: Glass -->
+                <a href="#glass-section" class="hero-slide">
+                    <div class="hero-slide-img"><i class="fa-solid fa-glasses"></i></div>
+                    <h1>UV Tempered Glass</h1>
+                    <p>Ultra-clear edge-to-edge curved screen protection designed to prevent scratch and drop damage.</p>
+                    <span class="btn-slide-action">View Protection</span>
+                </a>
             </div>
             <div class="hero-dots" id="heroDots">
                 <span class="h-dot active" onclick="currentHeroSlide(0)"></span>
                 <span class="h-dot" onclick="currentHeroSlide(1)"></span>
                 <span class="h-dot" onclick="currentHeroSlide(2)"></span>
                 <span class="h-dot" onclick="currentHeroSlide(3)"></span>
+                <span class="h-dot" onclick="currentHeroSlide(4)"></span>
             </div>
         </div>
-    </div>
-
-    <!-- Circular Categories with Real Image Thumbnails -->
-    <div class="cat-scroll-section">
-        <div class="section-title">Explore Categories</div>
-        <div class="cat-slider">
-            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-mobile"></i></div><div class="cat-name">Mobile</div></div>
-            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-clock"></i></div><div class="cat-name">Smart Watch</div></div>
-            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-ear-listen"></i></div><div class="cat-name">Earpods</div></div>
-            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-headphones"></i></div><div class="cat-name">Neckband</div></div>
-            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-shield-halved"></i></div><div class="cat-name">Mobile Cover</div></div>
-            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-glasses"></i></div><div class="cat-name">Mobile Glasses</div></div>
-            <div class="cat-item"><div class="cat-circle-img"><i class="fa-solid fa-bolt"></i></div><div class="cat-name">Chargers</div></div>
-        </div>
-    </div>
-        <style>
+                                                                                                                          </div>
+                <style>
         .product-section-container {
             max-width: 1250px;
             margin: 0 auto 40px auto;
             padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
         }
 
         .prod-slider-wrapper {
@@ -456,8 +328,9 @@
         .prod-track {
             display: flex;
             gap: 20px;
-            transition: transform 0.5s ease-in-out;
+            overflow-x: auto;
             scroll-behavior: smooth;
+            padding-bottom: 10px;
         }
         .prod-track::-webkit-scrollbar { display: none; }
 
@@ -467,7 +340,7 @@
             border-radius: 12px;
             padding: 16px;
             min-width: 240px;
-            flex: 0 0 calc(20% - 16px); /* Fits 5 items per view */
+            flex: 0 0 calc(20% - 16px);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -534,7 +407,7 @@
         }
         .btn-choose:hover { background-color: var(--text-main); color: #ffffff; }
 
-        /* Slow Brand Logos Ticker (0.6s smooth speed) */
+        /* Slow Brand Ticker */
         .brands-section {
             max-width: 1250px;
             margin: 40px auto;
@@ -545,7 +418,7 @@
             display: flex;
             gap: 20px;
             width: max-content;
-            animation: slowTicker 20s linear infinite;
+            animation: slowTicker 25s linear infinite;
         }
         @keyframes slowTicker {
             0% { transform: translateX(0); }
@@ -558,29 +431,48 @@
             border-radius: 8px;
             font-weight: 700;
             font-size: 15px;
-            letter-spacing: 1px;
             color: var(--text-main);
             white-space: nowrap;
         }
 
-        /* Footer */
+        /* Professional Footer */
         footer {
             background-color: #f9fafb;
             border-top: 1px solid var(--border-color);
-            margin-top: 50px;
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 13px;
+            margin-top: 60px;
+            padding: 50px 20px 20px 20px;
             color: var(--text-muted);
+            font-size: 13px;
+        }
+        .footer-grid {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+        }
+        .footer-col h4 { color: var(--text-main); font-size: 15px; margin-bottom: 14px; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .footer-col ul a { text-decoration: none; color: var(--text-muted); transition: color 0.2s; }
+        .footer-col ul a:hover { color: var(--text-main); }
+        .footer-bottom {
+            max-width: 1250px;
+            margin: 40px auto 0 auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
         }
     </style>
 
-    <!-- Section 1: New Arrivals (7 Cards Auto-Slide) -->
+    <!-- 1. New Arrivals Section (7 Cards) -->
     <div class="product-section-container">
         <div class="section-title">New Arrivals</div>
         <div class="prod-slider-wrapper">
             <div class="prod-track" id="trackNew">
-                <!-- 7 Cards added -->
                 <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-mobile"></i></div><div class="product-name">iPhone 15 Pro Max Silicon Armor Case</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹1,199</div></div><button class="btn-choose">Choose Options</button></div></div>
                 <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-bolt"></i></div><div class="product-name">Apple 20W Type-C Fast Adapter</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,999</span> ₹1,699</div></div><button class="btn-choose">Choose Options</button></div></div>
                 <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Boat Rockerz Wireless Earbuds</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,999</span> ₹1,499</div></div><button class="btn-choose">Choose Options</button></div></div>
@@ -592,7 +484,7 @@
         </div>
     </div>
 
-    <!-- Section 2: Best Sellers (6 Cards Auto-Slide) -->
+    <!-- 2. Best Sellers Section (6 Cards) -->
     <div class="product-section-container">
         <div class="section-title">Best Sellers</div>
         <div class="prod-slider-wrapper">
@@ -607,8 +499,8 @@
         </div>
     </div>
 
-    <!-- Section 3: Dedicated Mobile Section (6 Cards Auto-Slide) -->
-    <div class="product-section-container">
+    <!-- 3. Mobile Section (6 Cards) -->
+    <div class="product-section-container" id="mobile-section">
         <div class="section-title">Smartphones & Mobiles</div>
         <div class="prod-slider-wrapper">
             <div class="prod-track" id="trackMobile">
@@ -622,7 +514,66 @@
         </div>
     </div>
 
-    <!-- Slow Brand Logos Ticker (Duplicated for infinite looping smoothness) -->
+    <!-- 4. Cover Section (6 Cards) -->
+    <div class="product-section-container" id="cover-section">
+        <div class="section-title">Mobile Covers & Cases</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackCover">
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Liquid Silicone Matte Cover</div></div><div><div class="product-price-row"><div class="price-box">₹399</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Transparent Airbag Back Cover</div></div><div><div class="product-price-row"><div class="price-box">₹299</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Magnetic Ring Armor Case</div></div><div><div class="product-price-row"><div class="price-box">₹599</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Designer Printed Glass Case</div></div><div><div class="product-price-row"><div class="price-box">₹499</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Carbon Fiber Rugged Cover</div></div><div><div class="product-price-row"><div class="price-box">₹699</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-shield-halved"></i></div><div class="product-name">Flip Leather Wallet Case</div></div><div><div class="product-price-row"><div class="price-box">₹799</div></div><button class="btn-choose">Choose Options</button></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Earpods Section (6 Cards) -->
+    <div class="product-section-container" id="earpods-section">
+        <div class="section-title">Wireless Earpods & Audio</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackEarpods">
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Apple AirPods Pro (2nd Gen)</div></div><div><div class="product-price-row"><div class="price-box">₹20,999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Boat Airdopes 141 Pro TWS</div></div><div><div class="product-price-row"><div class="price-box">₹1,199</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">OnePlus Buds 3 Pro</div></div><div><div class="product-price-row"><div class="price-box">₹4,499</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Realme Buds Air 6</div></div><div><div class="product-price-row"><div class="price-box">₹2,999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Boult Audio AirBass</div></div><div><div class="product-price-row"><div class="price-box">₹999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-ear-listen"></i></div><div class="product-name">Jonas True Wireless Pods</div></div><div><div class="product-price-row"><div class="price-box">₹1,799</div></div><button class="btn-choose">Choose Options</button></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Mobile Glass Section (6 Cards) -->
+    <div class="product-section-container" id="glass-section">
+        <div class="section-title">Mobile Screen Glasses</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackGlass">
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">UV Curved Edge Tempered Glass</div></div><div><div class="product-price-row"><div class="price-box">₹499</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Matte Anti-Glare Gaming Glass</div></div><div><div class="product-price-row"><div class="price-box">₹399</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Privacy Anti-Spy Tempered Glass</div></div><div><div class="product-price-row"><div class="price-box">₹599</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">9H Hardness Clear Screen Guard</div></div><div><div class="product-price-row"><div class="price-box">₹249</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Blue Light Eye Protection Glass</div></div><div><div class="product-price-row"><div class="price-box">₹449</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-glasses"></i></div><div class="product-name">Camera Glass Protector Ring</div></div><div><div class="product-price-row"><div class="price-box">₹199</div></div><button class="btn-choose">Choose Options</button></div></div>
+            </div>
+        </div>
+    </div>
+  <!-- 7. Charger Section (6 Cards) -->
+    <div class="product-section-container" id="charger-section">
+        <div class="section-title">Chargers & Power Adapters</div>
+        <div class="prod-slider-wrapper">
+            <div class="prod-track" id="trackCharger">
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">Apple 20W USB-C Power Adapter</div></div><div><div class="product-price-row"><div class="price-box">₹1,699</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">OnePlus 80W SuperVOOC Charger</div></div><div><div class="product-price-row"><div class="price-box">₹1,999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">Samsung 25W PD Fast Wall Charger</div></div><div><div class="product-price-row"><div class="price-box">₹1,299</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">Mi 33W SonicCharge 2.0 Adapter</div></div><div><div class="product-price-row"><div class="price-box">₹999</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">Portronics Dual Port Fast Charger</div></div><div><div class="product-price-row"><div class="price-box">₹499</div></div><button class="btn-choose">Choose Options</button></div></div>
+                <div class="product-card"><div><div class="product-img-box"><i class="fa-solid fa-bolt"></i></div><div class="product-name">MagSafe Magnetic Wireless Pad</div></div><div><div class="product-price-row"><div class="price-box">₹2,499</div></div><button class="btn-choose">Choose Options</button></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slow Brand Logos Ticker -->
     <div class="brands-section">
         <div class="section-title" style="margin-bottom: 14px;">Authorized Partner Brands</div>
         <div style="overflow: hidden; width: 100%;">
@@ -635,7 +586,6 @@
                 <div class="brand-badge">BOAT</div>
                 <div class="brand-badge">VIVO</div>
                 <div class="brand-badge">OPPO</div>
-                <!-- Duplicate for seamless scroll -->
                 <div class="brand-badge">APPLE</div>
                 <div class="brand-badge">SAMSUNG</div>
                 <div class="brand-badge">ONEPLUS</div>
@@ -648,9 +598,37 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Professional Footer (Left Logo, Right Pages & Category Setup) -->
     <footer>
-        <p>© All Rights Reserved 2026 Soni Mobile Hub. Pure White Professional Theme.</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="margin-bottom: 12px; display: inline-flex;">
+                    <i class="fa-solid fa-mobile-screen-button"></i> Soni Mobile Hub
+                </a>
+                <p style="max-width: 340px; line-height: 1.5;">Your ultimate tech destination for premium smartphones, protective covers, certified chargers, and high-quality audio accessories.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Pages</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#mobile-section">Smartphones</a></li>
+                    <li><a href="#cover-section">Mobile Covers</a></li>
+                    <li><a href="#earpods-section">Wireless Earpods</a></li>
+                    <li><a href="#charger-section">Fast Chargers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© All Rights Reserved 2026 Soni Mobile Hub. Clean Pure White Professional Theme.</p>
+        </div>
     </footer>
 
     <!-- JavaScript Automation -->
@@ -660,7 +638,7 @@
         const heroTrack = document.getElementById('heroTrack');
         const heroDots = document.querySelectorAll('.h-dot');
         function updateHero() {
-            heroTrack.style.transform = `translateX(-${currentHeroIndex * 25}%)`;
+            heroTrack.style.transform = `translateX(-${currentHeroIndex * 20}%)`;
             heroDots.forEach(dot => dot.classList.remove('active'));
             heroDots[currentHeroIndex].classList.add('active');
         }
@@ -669,26 +647,29 @@
             updateHero();
         }
         setInterval(() => {
-            currentHeroIndex = (currentHeroIndex + 1) % 4;
+            currentHeroIndex = (currentHeroIndex + 1) % 5;
             updateHero();
         }, 4500);
 
-        // 2. Product Sliders Auto Scroll (Smooth step-by-step or continuous sliding)
+        // 2. Smooth Continuous Auto-Slider for All Product Tracks
         function setupProductAutoSlide(trackId) {
             const track = document.getElementById(trackId);
             let scrollAmount = 0;
             setInterval(() => {
-                scrollAmount += 260;
+                scrollAmount += 265;
                 if (scrollAmount >= track.scrollWidth - track.clientWidth) {
                     scrollAmount = 0;
                 }
                 track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-            }, 4000);
+            }, 3500);
         }
         setupProductAutoSlide('trackNew');
         setupProductAutoSlide('trackBest');
         setupProductAutoSlide('trackMobile');
+        setupProductAutoSlide('trackCover');
+        setupProductAutoSlide('trackEarpods');
+        setupProductAutoSlide('trackGlass');
+        setupProductAutoSlide('trackCharger');
     </script>
 </body>
-                                                                                                                                                                                                                                     </html>
-            
+                    </html>                                                                                                              
