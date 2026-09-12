@@ -17,7 +17,7 @@
 
         :root {
             --bg-main: #ffffff;
-            --bg-card: #ffffff;
+            --bg-card: #f9fafb;
             --border-color: #e5e7eb;
             --text-main: #000000;
             --text-muted: #4b5563;
@@ -51,61 +51,158 @@
             text-decoration: none;
         }
 
-        .nav-menu { display: none; list-style: none; gap: 24px; align-items: center; }
+        .nav-menu {
+            display: none;
+            list-style: none;
+            gap: 24px;
+            align-items: center;
+        }
+
         .nav-item { position: relative; }
-        .nav-link { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 6px; padding: 8px 0; transition: color 0.2s; }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 0;
+            transition: color 0.2s;
+        }
+
         .nav-link:hover, .nav-link.active { color: var(--text-main); font-weight: 600; }
 
         .dropdown-menu {
-            position: absolute; top: 100%; left: 0; background-color: var(--bg-main);
-            border: 1px solid var(--border-color); border-radius: 8px; width: 240px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: none; padding: 10px 0; z-index: 1100;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            width: 240px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            display: none;
+            padding: 10px 0;
+            z-index: 1100;
         }
+
         .nav-item:hover .dropdown-menu { display: block; }
-        .dropdown-item { padding: 10px 18px; display: block; text-decoration: none; color: var(--text-main); font-size: 13px; font-weight: 500; }
+
+        .dropdown-item {
+            padding: 10px 18px;
+            display: block;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 13px;
+            font-weight: 500;
+        }
         .dropdown-item:hover { background-color: #f3f4f6; }
 
-        .header-icons { display: flex; gap: 18px; font-size: 18px; align-items: center; }
+        .dropdown-sub {
+            padding: 6px 0 6px 28px;
+            font-size: 12px;
+            color: var(--text-muted);
+            display: block;
+            text-decoration: none;
+        }
+        .dropdown-sub:hover { color: var(--text-main); }
+
+        .header-icons {
+            display: flex;
+            gap: 18px;
+            font-size: 18px;
+            align-items: center;
+        }
         .header-icons a { color: var(--text-muted); position: relative; text-decoration: none; }
         .header-icons a:hover { color: var(--text-main); }
 
         .cart-badge {
-            position: absolute; top: -6px; right: -8px; background-color: var(--text-main);
-            color: #ffffff; font-size: 9px; font-weight: 700; padding: 2px 5px; border-radius: 50%;
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background-color: var(--text-main);
+            color: #ffffff;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 5px;
+            border-radius: 50%;
         }
 
         @media (min-width: 992px) { .nav-menu { display: flex; } }
 
-        /* 1:1 Hero Slider with Real Images (No Icons) */
-        .hero-slider { max-width: 900px; margin: 20px auto; padding: 0 20px; }
+        /* 1. Hero Slider (1:1 Size with Real Images covering full slide) */
+        .hero-slider {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
         .hero-container {
-            background-color: var(--bg-card); border: 1px solid var(--border-color);
-            border-radius: 16px; overflow: hidden; position: relative; aspect-ratio: 1 / 1;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1 / 1;
         }
-        .hero-slides-track { display: flex; transition: transform 0.6s ease-in-out; width: 500%; height: 100%; }
+        .hero-slides-track {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+            width: 500%;
+            height: 100%;
+        }
         .hero-slide {
-            width: 20%; height: 100%; flex-shrink: 0; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-decoration: none; color: inherit;
-            padding: 40px; text-align: center; background: #ffffff;
+            width: 20%;
+            height: 100%;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            background-size: cover;
+            background-position: center;
         }
-        .hero-slide h1 { font-size: 30px; font-weight: 700; margin-bottom: 10px; }
-        .hero-slide p { font-size: 14px; color: var(--text-muted); margin-bottom: 15px; max-width: 400px; }
-        
-        .hero-slide-img-box {
-            width: 240px; height: 240px; background: #ffffff; border-radius: 12px;
-            overflow: hidden; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
+            z-index: 1;
         }
-        .hero-slide-img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .btn-slide-action { background-color: var(--text-main); color: #ffffff; padding: 10px 22px; border-radius: 6px; font-size: 13px; font-weight: 600; }
+        .hero-slide > * { position: relative; z-index: 2; }
+        .hero-slide h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .hero-slide p { font-size: 14px; color: #f3f4f6; margin-bottom: 15px; max-width: 400px; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+        .btn-slide-action { background-color: #ffffff; color: #000000; padding: 10px 22px; border-radius: 6px; font-size: 13px; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-        .hero-dots { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
-        .h-dot { width: 8px; height: 8px; border-radius: 50%; background-color: #d1d5db; cursor: pointer; transition: background 0.3s; }
-        .h-dot.active { background-color: var(--text-main); width: 22px; border-radius: 4px; }
+        .hero-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        .h-dot { width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s; }
+        .h-dot.active { background-color: #ffffff; width: 22px; border-radius: 4px; }
 
         /* Information Ticker */
         .info-ticker {
-            background-color: #f3f4f6; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
-            padding: 10px 0; overflow: hidden; white-space: nowrap; margin: 20px 0; font-size: 13px; font-weight: 500;
+            background-color: #f3f4f6;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 20px 0;
+            font-size: 13px;
+            font-weight: 500;
         }
         .ticker-track { display: inline-block; animation: tickerSlide 25s linear infinite; }
         @keyframes tickerSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -116,7 +213,9 @@
             display: flex; flex-direction: column; gap: 12px;
             background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;
         }
-        @media(min-width: 768px) { .search-filter-box { flex-direction: row; align-items: center; justify-content: space-between; } }
+        @media(min-width: 768px) {
+            .search-filter-box { flex-direction: row; align-items: center; justify-content: space-between; }
+        }
         .main-search-input {
             display: flex; align-items: center; background: #ffffff;
             border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 14px; gap: 10px; flex: 1;
@@ -129,27 +228,20 @@
         }
         .pill-btn:hover, .pill-btn.active { background: var(--text-main); color: #ffffff; border-color: var(--text-main); }
 
-        /* Larger Clickable Circular Categories with White Background & Clean 8k Images */
+        /* 3. Larger Clickable Circular Categories with 8K Clean White Background Images */
         .cat-scroll-section { max-width: 1250px; margin: 0 auto 40px auto; padding: 0 20px; }
-        .section-title { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+        .section-title { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
         .cat-slider { display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 10px; }
         .cat-slider::-webkit-scrollbar { display: none; }
-        .cat-item { text-align: center; flex-shrink: 0; cursor: pointer; width: 115px; text-decoration: none; color: inherit; }
+        .cat-item { text-align: center; flex-shrink: 0; cursor: pointer; width: 110px; text-decoration: none; color: inherit; }
         .cat-circle-img {
             width: 100px; height: 100px; background-color: #ffffff; border: 1px solid var(--border-color);
             border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden;
-            margin: 0 auto 10px auto; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            margin: 0 auto 10px auto; box-shadow: 0 4px 12px rgba(0,0,0,0.04); transition: transform 0.2s;
         }
         .cat-circle-img img { width: 100%; height: 100%; object-fit: cover; background: #ffffff; }
-        .cat-item:hover .cat-circle-img { transform: scale(1.08); border-color: var(--text-main); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }
-        .cat-name { font-size: 14px; font-weight: 600; }
-
-        /* Scroll Animation (Fade In / Out effect) */
-        .product-section-container {
-            max-width: 1250px; margin: 0 auto 50px auto; padding: 0 20px;
-            opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .product-section-container.visible { opacity: 1; transform: translateY(0); }
+        .cat-item:hover .cat-circle-img { transform: scale(1.06); border-color: var(--text-main); }
+        .cat-name { font-size: 13px; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -182,36 +274,31 @@
         </div>
     </header>
 
-    <!-- 1:1 Hero Slider with Real Images (No Icons) -->
+    <!-- 1:1 Hero Slider with Real Background Images -->
     <div class="hero-slider">
         <div class="hero-container">
             <div class="hero-slides-track" id="heroTrack">
-                <a href="#mobile-section" class="hero-slide">
-                    <div class="hero-slide-img-box"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600" alt="Mobile"></div>
+                <a href="#mobile-section" class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900');">
                     <h1>Flagship 5G Smartphones</h1>
                     <p>Explore high-performance smartphones with incredible camera quality and best warranty.</p>
                     <span class="btn-slide-action">Explore Mobiles</span>
                 </a>
-                <a href="#charger-section" class="hero-slide">
-                    <div class="hero-slide-img-box"><img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600" alt="Charger"></div>
+                <a href="#charger-section" class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=900');">
                     <h1>Fast MagSafe Chargers</h1>
                     <p>Power up your devices safely with certified 20W adapters and magnetic wireless pads.</p>
                     <span class="btn-slide-action">View Chargers</span>
                 </a>
-                <a href="#earpods-section" class="hero-slide">
-                    <div class="hero-slide-img-box"><img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600" alt="Earpods"></div>
+                <a href="#earpods-section" class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=900');">
                     <h1>Pro Wireless Earbuds</h1>
                     <p>Immerse yourself in pure bass with our trending wireless earbuds and noise cancellation.</p>
                     <span class="btn-slide-action">Shop Earpods</span>
                 </a>
-                <a href="#cover-section" class="hero-slide">
-                    <div class="hero-slide-img-box"><img src="https://images.unsplash.com/photo-1601593346740-92561fda76a5?w=600" alt="Cover"></div>
+                <a href="#cover-section" class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1601593346740-92561fda76a5?w=900');">
                     <h1>Rugged Armor Covers</h1>
                     <p>Protect your phone in style with shockproof rugged armor cases and matte finishes.</p>
                     <span class="btn-slide-action">Browse Covers</span>
                 </a>
-                <a href="#glass-section" class="hero-slide">
-                    <div class="hero-slide-img-box"><img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=600" alt="Glass"></div>
+                <a href="#glass-section" class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=900');">
                     <h1>UV Tempered Glass</h1>
                     <p>Ultra-clear edge-to-edge curved screen protection designed to prevent scratch and drop damage.</p>
                     <span class="btn-slide-action">View Protection</span>
@@ -252,7 +339,7 @@
         </div>
     </div>
 
-    <!-- Larger Clickable Circular Categories with Clean White Background & 8k Images -->
+    <!-- Larger Clickable Circular Categories with 8K Clean White Background Images -->
     <div class="cat-scroll-section">
         <div class="section-title">Explore Categories</div>
         <div class="cat-slider">
@@ -263,58 +350,98 @@
             <a href="#charger-section" class="cat-item"><div class="cat-circle-img"><img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300" alt="Charger"></div><div class="cat-name">Charger</div></a>
             <a href="#tshirts-section" class="cat-item"><div class="cat-circle-img"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300" alt="T-Shirts"></div><div class="cat-name">T-Shirts</div></a>
         </div>
-    </div>
-    
-        <style>
-        /* Larger Responsive Cards (Auto set for desktop and mobile) */
+            </div>
+                            <style>
+        .product-section-container { max-width: 1250px; margin: 0 auto 50px auto; padding: 0 20px; }
         .prod-slider-wrapper { position: relative; overflow: hidden; }
-        .prod-track {
-            display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; padding: 10px 4px 20px 4px;
-        }
+        .prod-track { display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; padding: 10px 4px; }
         .prod-track::-webkit-scrollbar { height: 6px; }
         .prod-track::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
 
+        /* 2. Larger Desktop & Mobile Cards */
         .product-card {
-            background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px;
-            padding: 20px; min-width: 290px; flex: 0 0 calc(20% - 20px); display: flex; flex-direction: column;
-            justify-content: space-between; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02); cursor: pointer;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            min-width: 290px;
+            flex: 0 0 calc(25% - 18px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--text-main); }
-
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: #cbd5e1;
+        }
         @media (max-width: 1200px) { .product-card { flex: 0 0 calc(33.33% - 16px); min-width: 270px; } }
-        @media (max-width: 768px) { .product-card { flex: 0 0 calc(50% - 12px); min-width: 230px; } }
-        @media (max-width: 480px) { .product-card { flex: 0 0 80%; min-width: 220px; } }
+        @media (max-width: 900px) { .product-card { flex: 0 0 calc(50% - 12px); min-width: 250px; } }
+        @media (max-width: 600px) { .product-card { flex: 0 0 85%; min-width: 240px; } }
 
         .product-img-box {
-            background-color: #ffffff; border: 1px solid var(--border-color); border-radius: 10px;
-            height: 190px; display: flex; align-items: center; justify-content: center; overflow: hidden;
-            margin-bottom: 14px; position: relative;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 14px;
+            position: relative;
         }
-        .product-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .product-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .product-card:hover .product-img-box img { transform: scale(1.05); }
+
         .badge-tag {
             position: absolute; top: 10px; left: 10px; font-size: 10px;
-            background: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 700; border: 1px solid var(--border-color); z-index: 2;
+            background: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 700; border: 1px solid var(--border-color);
+            z-index: 2;
         }
-        .product-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
-        .product-desc { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.4; }
+        .product-name { font-size: 15px; font-weight: 600; margin-bottom: 6px; line-height: 1.3; }
+        .product-desc { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.4; }
         .product-price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
         .price-box { font-size: 15px; font-weight: 700; }
         .old-price { font-size: 12px; color: var(--text-muted); text-decoration: line-through; margin-right: 6px; }
 
         .btn-buy {
-            background-color: var(--text-main); border: 1px solid var(--text-main); color: #ffffff;
-            width: 100%; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
-            transition: opacity 0.2s; text-align: center;
+            background-color: var(--text-main);
+            border: 1px solid var(--text-main);
+            color: #ffffff;
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            text-align: center;
         }
         .btn-buy:hover { opacity: 0.85; }
+
+        /* 4. Scroll Fade-In / Animation Class */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 
     <!-- 1. New Arrivals -->
-    <div class="product-section-container">
+    <div class="product-section-container scroll-reveal">
         <div class="section-title">New Arrivals</div>
         <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackNew">
+            <div class="prod-track">
                 <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1601593346740-92561fda76a5?w=400" alt="Case"></div><div class="product-name">iPhone 15 Pro Max Armor Case</div><div class="product-desc">Silicon matte finish with extreme drop defense protection.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹1,199</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400" alt="Adapter"></div><div class="product-name">Apple 20W Type-C Adapter</div><div class="product-desc">Original ultra fast charging wall power brick adapter.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,999</span> ₹1,699</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" alt="Earbuds"></div><div class="product-name">Boat Rockerz Wireless Earbuds</div><div class="product-desc">True wireless stereo pods with 40H playtime battery.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,999</span> ₹1,499</div></div><span class="btn-buy">Buy Now</span></div></a>
@@ -327,10 +454,10 @@
     </div>
 
     <!-- 2. Best Sellers -->
-    <div class="product-section-container">
+    <div class="product-section-container scroll-reveal">
         <div class="section-title">Best Sellers</div>
         <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackBest">
+            <div class="prod-track">
                 <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400" alt="Case"></div><div class="product-name">Galaxy S24 Ultra Cover</div><div class="product-desc">Heavy duty hybrid armor kickstand shockproof case.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,299</span> ₹999</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400" alt="Cable"></div><div class="product-name">Braided Type-C Fast Cable</div><div class="product-desc">Tangle-free heavy duty nylon braided fast sync cable.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹699</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><img src="https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400" alt="TWS"></div><div class="product-name">Realme Buds T300 TWS</div><div class="product-desc">30dB active noise cancellation with 360 spatial audio.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹2,999</span> ₹2,199</div></div><span class="btn-buy">Buy Now</span></div></a>
@@ -342,10 +469,10 @@
     </div>
 
     <!-- 3. Mobile Section -->
-    <div class="product-section-container" id="mobile-section">
+    <div class="product-section-container scroll-reveal" id="mobile-section">
         <div class="section-title">Smartphones & Mobiles</div>
         <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackMobile">
+            <div class="prod-track">
                 <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" alt="Phone"></div><div class="product-name">OnePlus Nord CE 4 5G</div><div class="product-desc">8GB RAM, 256GB Storage, AMOLED 120Hz smooth display.</div></div><div><div class="product-price-row"><div class="price-box">₹24,999</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" alt="Phone"></div><div class="product-name">Redmi Note 13 Pro 5G</div><div class="product-desc">200MP OIS camera system with fast 67W turbo charging.</div></div><div><div class="product-price-row"><div class="price-box">₹22,999</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">5G</span><img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400" alt="Phone"></div><div class="product-name">Realme Narzo 70 Pro 5G</div><div class="product-desc">Sony IMX890 OIS camera with air gesture functionality.</div></div><div><div class="product-price-row"><div class="price-box">₹18,999</div></div><span class="btn-buy">Buy Now</span></div></a>
@@ -357,10 +484,10 @@
     </div>
 
     <!-- 4. Cover Section -->
-    <div class="product-section-container" id="cover-section">
+    <div class="product-section-container scroll-reveal" id="cover-section">
         <div class="section-title">Mobile Covers & Cases</div>
         <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackCover">
+            <div class="prod-track">
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1601593346740-92561fda76a5?w=400" alt="Cover"></div><div class="product-name">Liquid Silicone Matte Cover</div><div class="product-desc">Soft microfiber lining inner shell with silky smooth grip.</div></div><div><div class="product-price-row"><div class="price-box">₹399</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400" alt="Cover"></div><div class="product-name">Transparent Airbag Case</div><div class="product-desc">Crystal clear anti-yellowing bumper drop tested back case.</div></div><div><div class="product-price-row"><div class="price-box">₹299</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400" alt="Cover"></div><div class="product-name">Magnetic Ring Armor Case</div><div class="product-desc">360 degree rotatable stand ring with magnetic car mount base.</div></div><div><div class="product-price-row"><div class="price-box">₹599</div></div><span class="btn-buy">Buy Now</span></div></a>
@@ -370,11 +497,11 @@
             </div>
         </div>
     </div>
-        <!-- 5. Earpods Section -->
-    <div class="product-section-container" id="earpods-section">
+    <!-- 5. Earpods Section -->
+    <div class="product-section-container scroll-reveal" id="earpods-section">
         <div class="section-title">Wireless Earpods & Audio</div>
         <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackEarpods">
+            <div class="prod-track">
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400" alt="Earpods"></div><div class="product-name">Apple AirPods Pro (2nd Gen)</div><div class="product-desc">Active noise cancellation and adaptive audio transparency mode.</div></div><div><div class="product-price-row"><div class="price-box">₹20,999</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400" alt="Earpods"></div><div class="product-name">Boat Airdopes 141 Pro</div><div class="product-desc">100H playtime beast mode low latency gaming ear pods.</div></div><div><div class="product-price-row"><div class="price-box">₹1,199</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400" alt="Earpods"></div><div class="product-name">OnePlus Buds 3 Pro</div><div class="product-desc">Co-axial dual drivers with hi-res audio wireless support.</div></div><div><div class="product-price-row"><div class="price-box">₹4,499</div></div><span class="btn-buy">Buy Now</span></div></a>
@@ -386,10 +513,10 @@
     </div>
 
     <!-- 6. Mobile Glass Section -->
-    <div class="product-section-container" id="glass-section">
+    <div class="product-section-container scroll-reveal" id="glass-section">
         <div class="section-title">Mobile Screen Glasses</div>
         <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackGlass">
+            <div class="prod-track">
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=400" alt="Glass"></div><div class="product-name">UV Curved Edge Glass</div><div class="product-desc">Liquid UV adhesive full coverage screen guard protector.</div></div><div><div class="product-price-row"><div class="price-box">₹499</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=400" alt="Glass"></div><div class="product-name">Matte Anti-Glare Glass</div><div class="product-desc">Fingerprint resistant smooth frosted finish gaming glass.</div></div><div><div class="product-price-row"><div class="price-box">₹399</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=400" alt="Glass"></div><div class="product-name">Privacy Anti-Spy Glass</div><div class="product-desc">28-degree side view protection anti-peeping tempered guard.</div></div><div><div class="product-price-row"><div class="price-box">₹599</div></div><span class="btn-buy">Buy Now</span></div></a>
@@ -401,10 +528,10 @@
     </div>
 
     <!-- 7. Charger Section -->
-    <div class="product-section-container" id="charger-section">
+    <div class="product-section-container scroll-reveal" id="charger-section">
         <div class="section-title">Chargers & Power Adapters</div>
         <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackCharger">
+            <div class="prod-track">
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400" alt="Charger"></div><div class="product-name">Apple 20W USB-C Adapter</div><div class="product-desc">Fast compact wall power charger brick for iOS devices.</div></div><div><div class="product-price-row"><div class="price-box">₹1,699</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1609592424158-453bc3558d04?w=400" alt="Charger"></div><div class="product-name">OnePlus 80W SuperVOOC</div><div class="product-desc">Ultra fast flash charging adapter with Type-C cable bundle.</div></div><div><div class="product-price-row"><div class="price-box">₹1,999</div></div><span class="btn-buy">Buy Now</span></div></a>
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400" alt="Charger"></div><div class="product-name">Samsung 25W PD Charger</div><div class="product-desc">Super fast power delivery wall charger adapter.</div></div><div><div class="product-price-row"><div class="price-box">₹1,299</div></div><span class="btn-buy">Buy Now</span></div></a>
@@ -413,33 +540,31 @@
                 <a href="#" class="product-card"><div><div class="product-img-box"><img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=400" alt="Charger"></div><div class="product-name">MagSafe Wireless Pad</div><div class="product-desc">Magnetic fast charging alignment wireless dock charger.</div></div><div><div class="product-price-row"><div class="price-box">₹2,499</div></div><span class="btn-buy">Buy Now</span></div></a>
             </div>
         </div>
-    </div>
-
-    <!-- 8. Custom T-Shirts Section (10 Cards with Custom & Buy Buttons) -->
+                  <!-- 8. Custom T-Shirts Section -->
     <style>
         .tshirt-action-btns { display: flex; gap: 8px; margin-top: 10px; }
         .btn-custom {
             background-color: transparent; border: 1px solid var(--text-main); color: var(--text-main);
-            flex: 1; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; text-align: center;
-            text-decoration: none; display: inline-block; transition: background 0.2s;
+            flex: 1; padding: 10px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; text-align: center;
+            transition: background 0.2s;
         }
         .btn-custom:hover { background-color: #f3f4f6; }
     </style>
 
-    <div class="product-section-container" id="tshirts-section">
+    <div class="product-section-container scroll-reveal" id="tshirts-section">
         <div class="section-title">Custom T-Shirts Collection</div>
         <div class="prod-slider-wrapper">
-            <div class="prod-track" id="trackTshirts">
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400" alt="T-Shirt"></div><div class="product-name">Oversized Black Streetwear</div><div class="product-desc">100% heavy cotton bio-washed custom printed graphic tee.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,299</span> ₹799</div></div><div class="tshirt-action-btns"><a href="#" class="btn-custom">Custom</a><a href="#" class="btn-buy" style="text-decoration:none; text-align:center;">Buy</a></div></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">TREND</span><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400" alt="T-Shirt"></div><div class="product-name">Minimalist Aesthetic White Tee</div><div class="product-desc">Clean typography embroidery premium breathable fabric t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹649</div></div><div class="tshirt-action-btns"><a href="#" class="btn-custom">Custom</a><a href="#" class="btn-buy" style="text-decoration:none; text-align:center;">Buy</a></div></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400" alt="T-Shirt"></div><div class="product-name">Vintage Anime Graphic Tee</div><div class="product-desc">Soft cotton oversized aesthetic Japanese anime printed t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹899</div></div><div class="tshirt-action-btns"><a href="#" class="btn-custom">Custom</a><a href="#" class="btn-buy" style="text-decoration:none; text-align:center;">Buy</a></div></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400" alt="T-Shirt"></div><div class="product-name">Solid Olive Green Polo Tee</div><div class="product-desc">Classic collar ribbed sleeve casual smart summer polo shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,199</span> ₹749</div></div><div class="tshirt-action-btns"><a href="#" class="btn-custom">Custom</a><a href="#" class="btn-buy" style="text-decoration:none; text-align:center;">Buy</a></div></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">SALE</span><img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=400" alt="T-Shirt"></div><div class="product-name">Cyberpunk Neon Print Tee</div><div class="product-desc">Glow aesthetic futuristic cyberpunk techwear graphic t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,399</span> ₹849</div></div><div class="tshirt-action-btns"><a href="#" class="btn-custom">Custom</a><a href="#" class="btn-buy" style="text-decoration:none; text-align:center;">Buy</a></div></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400" alt="T-Shirt"></div><div class="product-name">Classic Navy Blue Cotton Tee</div><div class="product-desc">Everyday comfort regular fit solid color basic t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹899</span> ₹499</div></div><div class="tshirt-action-btns"><a href="#" class="btn-custom">Custom</a><a href="#" class="btn-buy" style="text-decoration:none; text-align:center;">Buy</a></div></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">POPULAR</span><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400" alt="T-Shirt"></div><div class="product-name">Lo-Fi Chill Vibes Graphic Tee</div><div class="product-desc">Pastel color aesthetic relaxing lo-fi art printed shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,299</span> ₹799</div></div><div class="tshirt-action-btns"><a href="#" class="btn-custom">Custom</a><a href="#" class="btn-buy" style="text-decoration:none; text-align:center;">Buy</a></div></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400" alt="T-Shirt"></div><div class="product-name">Maroon Hooded T-Shirt</div><div class="product-desc">Half sleeve hoodie streetwear urban fashion casual t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,599</span> ₹999</div></div><div class="tshirt-action-btns"><a href="#" class="btn-custom">Custom</a><a href="#" class="btn-buy" style="text-decoration:none; text-align:center;">Buy</a></div></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400" alt="T-Shirt"></div><div class="product-name">Typography Quote Cotton Tee</div><div class="product-desc">Inspirational bold quote print premium quality cotton tee.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹599</div></div><div class="tshirt-action-btns"><a href="#" class="btn-custom">Custom</a><a href="#" class="btn-buy" style="text-decoration:none; text-align:center;">Buy</a></div></div></div>
-                <div class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=400" alt="T-Shirt"></div><div class="product-name">Tie-Dye Custom Streetwear Tee</div><div class="product-desc">Handcrafted multi-color unique pattern festival t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹899</div></div><div class="tshirt-action-btns"><a href="#" class="btn-custom">Custom</a><a href="#" class="btn-buy" style="text-decoration:none; text-align:center;">Buy</a></div></div></div>
+            <div class="prod-track">
+                <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400" alt="T-Shirt"></div><div class="product-name">Oversized Black Streetwear</div><div class="product-desc">100% heavy cotton bio-washed custom printed graphic tee.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,299</span> ₹799</div></div><div class="tshirt-action-btns"><span class="btn-custom">Custom</span><span class="btn-buy">Buy</span></div></div></a>
+                <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">TREND</span><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400" alt="T-Shirt"></div><div class="product-name">Minimalist Aesthetic White Tee</div><div class="product-desc">Clean typography embroidery premium breathable fabric t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹649</div></div><div class="tshirt-action-btns"><span class="btn-custom">Custom</span><span class="btn-buy">Buy</span></div></div></a>
+                <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400" alt="T-Shirt"></div><div class="product-name">Vintage Anime Graphic Tee</div><div class="product-desc">Soft cotton oversized aesthetic Japanese anime printed t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹899</div></div><div class="tshirt-action-btns"><span class="btn-custom">Custom</span><span class="btn-buy">Buy</span></div></div></a>
+                <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400" alt="T-Shirt"></div><div class="product-name">Solid Olive Green Polo Tee</div><div class="product-desc">Classic collar ribbed sleeve casual smart summer polo shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,199</span> ₹749</div></div><div class="tshirt-action-btns"><span class="btn-custom">Custom</span><span class="btn-buy">Buy</span></div></div></a>
+                <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">SALE</span><img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=400" alt="T-Shirt"></div><div class="product-name">Cyberpunk Neon Print Tee</div><div class="product-desc">Glow aesthetic futuristic cyberpunk techwear graphic t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,399</span> ₹849</div></div><div class="tshirt-action-btns"><span class="btn-custom">Custom</span><span class="btn-buy">Buy</span></div></div></a>
+                <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400" alt="T-Shirt"></div><div class="product-name">Classic Navy Blue Cotton Tee</div><div class="product-desc">Everyday comfort regular fit solid color basic t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹899</span> ₹499</div></div><div class="tshirt-action-btns"><span class="btn-custom">Custom</span><span class="btn-buy">Buy</span></div></div></a>
+                <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">POPULAR</span><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400" alt="T-Shirt"></div><div class="product-name">Lo-Fi Chill Vibes Graphic Tee</div><div class="product-desc">Pastel color aesthetic relaxing lo-fi art printed shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,299</span> ₹799</div></div><div class="tshirt-action-btns"><span class="btn-custom">Custom</span><span class="btn-buy">Buy</span></div></div></a>
+                <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400" alt="T-Shirt"></div><div class="product-name">Maroon Hooded T-Shirt</div><div class="product-desc">Half sleeve hoodie streetwear urban fashion casual t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,599</span> ₹999</div></div><div class="tshirt-action-btns"><span class="btn-custom">Custom</span><span class="btn-buy">Buy</span></div></div></a>
+                <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">HOT</span><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400" alt="T-Shirt"></div><div class="product-name">Typography Quote Cotton Tee</div><div class="product-desc">Inspirational bold quote print premium quality cotton tee.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹999</span> ₹599</div></div><div class="tshirt-action-btns"><span class="btn-custom">Custom</span><span class="btn-buy">Buy</span></div></div></a>
+                <a href="#" class="product-card"><div><div class="product-img-box"><span class="badge-tag">NEW</span><img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=400" alt="T-Shirt"></div><div class="product-name">Tie-Dye Custom Streetwear Tee</div><div class="product-desc">Handcrafted multi-color unique pattern festival t-shirt.</div></div><div><div class="product-price-row"><div class="price-box"><span class="old-price">₹1,499</span> ₹899</div></div><div class="tshirt-action-btns"><span class="btn-custom">Custom</span><span class="btn-buy">Buy</span></div></div></a>
             </div>
         </div>
     </div>
@@ -466,7 +591,7 @@
         </div>
     </div>
 
-    <!-- Professional Footer -->
+    <!-- Professional Footer with T-Shirts Setup near Logo -->
     <style>
         footer { background-color: #f9fafb; border-top: 1px solid var(--border-color); margin-top: 60px; padding: 50px 20px 20px 20px; color: var(--text-muted); font-size: 13px; }
         .footer-grid { max-width: 1250px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 30px; }
@@ -500,6 +625,7 @@
                     <li><a href="#mobile-section">Smartphones</a></li>
                     <li><a href="#cover-section">Mobile Covers</a></li>
                     <li><a href="#earpods-section">Wireless Earpods</a></li>
+                    <li><a href="#charger-section">Fast Chargers</a></li>
                     <li><a href="#tshirts-section">Custom T-Shirts Collection</a></li>
                 </ul>
             </div>
@@ -509,7 +635,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript Automation (Hero Slider + Scroll Animation Observer) -->
+    <!-- JavaScript Automation -->
     <script>
         // 1. Hero Auto-Slider (4.5 seconds)
         let currentHeroIndex = 0;
@@ -529,27 +655,24 @@
             updateHero();
         }, 4500);
 
-        // 2. Scroll Animation Observer (Cards Fade In on Scroll Up/Down)
+        // 4. Scroll Reveal Animation Observer (Fade-In as you scroll down, hide when scrolling up)
         const observerOptions = {
-            root: null,
-            rootMargin: '0px',
             threshold: 0.15
         };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('active');
                 } else {
-                    entry.target.classList.remove('visible'); // Hides when scrolling back up/out
+                    entry.target.classList.remove('active');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.product-section-container').forEach(section => {
-            observer.observe(section);
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
-</html>
-  
+    </html>
+                                                                                                                             </div>
